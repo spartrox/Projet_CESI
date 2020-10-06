@@ -6,7 +6,7 @@ session_start();
 
 define('WEBROOT', dirname(__FILE__));
 
-define('ROOT', WEBROOT);
+define('ROOT', dirname(WEBROOT));
 define('SERVER', $_SERVER['HTTP_HOST']);
 
 define('DS', DIRECTORY_SEPARATOR);
