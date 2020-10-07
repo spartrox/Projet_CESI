@@ -1,1 +1,7 @@
 CHOSE A FAIRE :
+
+GABRIEL : affichageAccueil / affichageFavoris / affichageTableaudebord
+
+THOMAS : affichageFooter / affichageContact / affichageProfil / affichageMisdecote
+
+ALLAN : affichageConnexion / affichageInscription / affichageMenuFrontend / affichageMenuBackend / affichageCreationsEditions / Création de la BDD
