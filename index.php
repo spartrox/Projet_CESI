@@ -1,8 +1,7 @@
 <?php
-
-// Définition du projet racine
-
+ob_start();
 session_start();
+// Définition du projet racine
 
 define('WEBROOT', dirname(__FILE__));
 
