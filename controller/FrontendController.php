@@ -7,4 +7,9 @@ class FrontendController extends Controller
     {
         $this->render("Accueil");
     }
+
+    function Inscription()
+    {
+        $this->render("Inscription");
+    }
 }
