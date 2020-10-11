@@ -4,7 +4,7 @@ class DefautController extends Controller
 {
     function index()
     {
-        $url = "Location: http://" . SERVER . BASE_URL . "/frontend/affichageAccueil";
+        $url = "Location: http://" . SERVER . BASE_URL . "/frontend/Accueil";
         header($url);
     }
 

@@ -3,8 +3,8 @@ class FrontendController extends Controller
 {
     private $modChamp = null;
 
-    function affichageAccueil()
+    function Accueil()
     {
-
+        $this->render("Accueil");
     }
 }
