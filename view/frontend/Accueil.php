@@ -29,3 +29,22 @@
         <h3><i class="far fa-user-circle"></i> COMMENTER ET PARTAGER</h3>
     </div>
 </div>
+<div style="background-color: lightgrey">
+    <div class="container">
+        <div class="row">
+            <div><h2>Partenaires</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-3"><img src="<?= BASE_SITE . DS . "/images/Cesi_Logo.png" ?>" width="300" style="display: block; margin-left: auto; margin-right: auto;"></div>
+            <div class="col-3"><img src="<?= BASE_SITE . DS . "/images/ministere_solidarite_sante.png" ?>" width="200" style="display: block; margin-left: auto; margin-right: auto;"></div>
+            <div class="col-3"><img src="<?= BASE_SITE . DS . "/images/dessin.svg.png" ?>" width="200" style="display: block; margin-left: auto; margin-right: auto;"></div>
+            <div class="col-3"><img src="<?= BASE_SITE . DS . "/images/La_Rochelle_logo.svg.png" ?>" width="200" style="display: block; margin-left: auto; margin-right: auto;"></div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <div class="col-3">CESI</div>
+            <div class="col-3">Ministère de la solidarité et de la santé</div>
+            <div class="col-3">Confrerie 404</div>
+            <div class="col-3">La Rochelle</div>
+        </div>
+    </div>
+</div>
