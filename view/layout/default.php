@@ -25,4 +25,7 @@
 	<body>
 		<?= $content_for_layout ?>
     </body>
+
+	<?php require_once ROOT . DS . "view/frontend/affichageFooter.php" ?>
+
 </html>
