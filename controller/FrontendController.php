@@ -8,6 +8,11 @@ class FrontendController extends Controller
         $this->render("Accueil");
     }
 
+    function Connexion()
+    {
+        $this->render("Connexion");
+    }
+
     function Inscription()
     {
         $this->render("Inscription");

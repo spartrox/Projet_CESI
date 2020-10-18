@@ -35,10 +35,10 @@
 						<a class="nav-link" href="Accueil">Accueil</a>
 					</li>
 					<li class="nav-item">
-                 	 	<a class="nav-link" href="">Connexion</a>
+                 	 	<a class="nav-link" href="Connexion">Connexion</a>
 					</li>
 					<li class="nav-item">
-	                  	<a class="nav-link" href="">Inscription</a>
+	                  	<a class="nav-link" href="Inscription">Inscription</a>
               		</li>
 				</ul>
 			
