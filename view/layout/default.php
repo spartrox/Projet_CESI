@@ -21,7 +21,30 @@
 	      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>	
 	   
 	</head>
-	
+	<div id="menu">
+    	<nav class="navbar navbar-expand-lg navbar-light" id="fondMenu">
+			<a class="navbar-brand" href="index.php"><img src="<?= BASE_SITE . DS . "/images/logoMenu.png" ?>"></img></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+      
+	  
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul>
+					<li class="nav-item">
+						<a class="nav-link" href="index.php">Accueil</a>
+					</li>
+					<li class="nav-item">
+                 	 	<a class="nav-link" href="">Connexion</a>
+					</li>
+					<li class="nav-item">
+	                  	<a class="nav-link" href="">Inscription</a>
+              		</li>
+				</ul>
+			
+			</div>
+		</nav>	
+    </div>
 	<body>
 		<?= $content_for_layout ?>
     </body>
