@@ -34,12 +34,34 @@
 					<li class="nav-item">
 						<a class="nav-link" href="index.php">Accueil</a>
 					</li>
+
+				<?php if(isset($_SESSION['id'])): ?>
+            
 					<li class="nav-item">
-                 	 	<a class="nav-link" href="">Connexion</a>
+						<a class="nav-link" href="">Tableau de bord</a>
+					</li>	
+
+					<li class="nav-item">
+						<a class="nav-link" href="">Profil</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="">Favoris</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="">Deconnexion</a>
+					</li>
+				<?php endif;
+					// else: ?> 
+					<li class="nav-item">
+                 	 	<a class="nav-link" href="">Inscription</a>
 					</li>
 					<li class="nav-item">
-	                  	<a class="nav-link" href="">Inscription</a>
-              		</li>
+	                  	<a class="nav-link" href="">Connexion</a>
+					  </li>
+				
+				
 				</ul>
 			
 			</div>
@@ -50,5 +72,7 @@
     </body>
 
 	<?php require_once ROOT . DS . "view/frontend/affichageFooter.php" ?>
+
+	
 
 </html>
