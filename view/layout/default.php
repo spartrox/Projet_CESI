@@ -9,9 +9,9 @@
 		<!-- Titre -->
 		<title>(Re)Sources/Lationelles</title>
 
-	      <!-- CSS/JQUERY/JAVASCRIPT -->
+		  <!-- CSS/JQUERY/JAVASCRIPT -->
+		  <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/style.css" ?>">
 	      <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/bootstrap.min.css" ?>">
-	      <link rel="stylesheet" type="text/css" href="<?= BASE_SITE . DS . "/css/style.css" ?>">
    		  <link href='https://fonts.googleapis.com/css?family=Raleway:100,400' rel='stylesheet' type='text/css'>
 		  <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/font-awesome.css" ?>">
 		  <script src="https://kit.fontawesome.com/165449b566.js" crossorigin="anonymous"></script>
@@ -21,8 +21,8 @@
 	      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>	
 	   
 	</head>
-	<div >
-    	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" >
+	<div style="">
+    	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" style="position:fixed; background-color:#D4D6D4; width:100%" >
 			<a class="navbar-brand" href="Accueil"><img src="<?= BASE_SITE . DS . "/images/logoMenu.png" ?>"></img></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -68,7 +68,12 @@
 
 					<li class="nav-item">
                  	 	<a class="nav-link" href="Connexion">CONNEXION</a>
-					</li>  
+					</li>
+					<form class="form-inline">
+						<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
+					</form>
+  </div>	
+					
 				</ul>		
 			</div>
 		</nav>	
