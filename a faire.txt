@@ -4,4 +4,4 @@ GABRIEL : affichageAccueil / affichageFavoris / affichageTableaudebord
 
 THOMAS : affichageFooter(fait) / affichageContact(fait) / affichageProfil / affichageMisdecote
 
-ALLAN : affichageConnexion / affichageInscription / affichageMenuFrontend / affichageMenuBackend / affichageCreationsEditions / Création de la BDD
+ALLAN : affichageConnexion(fait) / affichageInscription(fait) / affichageMenuFrontend(fait) / affichageMenuBackend(fait) / affichageCreationsEditions / Création de la BDD(fait)

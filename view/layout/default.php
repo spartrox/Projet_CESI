@@ -36,9 +36,11 @@
 					</li>
 
 				<?php if(isset($_SESSION['id'])): ?> <!-- Début du menu backend -->
-            
+					<?php endif;
+					// else: ?>  <!-- Fin du menu backend -->
+					
 					<div class="dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TABLEAU DE BORD</a> 
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="tableauDeBord/Tableaudebord" role="button" aria-haspopup="true" aria-expanded="false">TABLEAU DE BORD</a> 
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="Catalogue">CATALOGUE</a>
 							<a class="dropdown-item" href="CreationEdition">CRÉATION/ÉDITION</a>
@@ -58,8 +60,7 @@
 						<a class="nav-link" href="Deconnexion">DECONNEXION</a>
 					</li>
 
-					<?php endif;
-					// else: ?>  <!-- Fin du menu backend -->
+
 
 					<li class="nav-item">
 	                  	<a class="nav-link" href="Inscription">INSCRIPTION</a>

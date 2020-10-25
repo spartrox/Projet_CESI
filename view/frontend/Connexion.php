@@ -1,4 +1,4 @@
-				<h2>Connexion</h2>	
+				<h2>CONNEXION</h2>	
 				<br><br>
 	        <div class="container">
 				<form class="container col-md-5 formulaire"  action="index.php?action=pageConnexionSubmit" method="post">			
@@ -24,6 +24,6 @@
 			</div>
 
 				<div class="container" >
-					<p>Vous n'avez pas de compte ?<a href="index.php?action=pageInscription"> Cliquez ici pour vous inscrire !</a></p>
+					<p>Vous n'avez pas de compte ?<a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
                 </div>
                 

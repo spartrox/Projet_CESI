@@ -32,6 +32,6 @@
                           </div>
                  </form> <br>
 
-              <p>Déja un compte ? <a href="index.php?action=pageConnexion">Connectez-vous!</a></p>
+              <p>Déja un compte ? <a href="Connexion">Connectez-vous!</a></p>
            </div>  
 

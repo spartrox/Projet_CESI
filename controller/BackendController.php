@@ -3,13 +3,34 @@ class BackendController extends Controller
 {
     private $modChamp = null;
 
+    function Tableaudebord()
+    {
+        $this->render("tableauDeBord/Tableaudebord");
+    }
+
+    function Catalogue()
+    {
+        $this->render("Catalogue");
+    }
+
+    function CreationEdition()
+    {
+        $this->render("CreationEdition");
+    }
+
     function Favoris()
     {
         $this->render("Favoris");
     }
 
-    function Tableaudebord()
+    function Profil()
     {
-        $this->render("tableauDeBord/Tableaudebord");
+        $this->render("Profil");
     }
+
+    function Deconnexion()
+    {
+        $this->render("Deconnexion");
+    }
+
 }
