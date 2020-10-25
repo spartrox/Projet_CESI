@@ -21,61 +21,58 @@
 	      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>	
 	   
 	</head>
-	<div id="menu">
-    	<nav class="navbar navbar-expand-lg navbar-light" id="fondMenu">
+	<div >
+    	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" >
 			<a class="navbar-brand" href="Accueil"><img src="<?= BASE_SITE . DS . "/images/logoMenu.png" ?>"></img></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
-      
-	  
+
+			  
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul>
-					<li class="nav-item">
-						<a class="nav-link" href="Accueil">Accueil</a>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="Accueil">ACCUEIL</a>
 					</li>
 
-				<?php if(isset($_SESSION['id'])): ?>
+				<?php if(isset($_SESSION['id'])): ?> <!-- Début du menu backend -->
             
-					<li class="nav-item">
-						<a class="nav-link" href="">Tableau de bord</a>
-					</li>	
+					<div class="dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TABLEAU DE BORD</a> 
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="Catalogue">CATALOGUE</a>
+							<a class="dropdown-item" href="CreationEdition">CRÉATION/ÉDITION</a>
+							<a class="dropdown-item" href="AutresActions">AUTRES ACTIONS</a>
+						</div>
+					</div>
 
 					<li class="nav-item">
-						<a class="nav-link" href="">Profil</a>
-					</li>
-
-					<li class="nav-item">
-<<<<<<< HEAD
-						<a class="nav-link" href="">Favoris</a>
-=======
-                 	 	<a class="nav-link" href="Connexion">Connexion</a>
->>>>>>> eaca720a8989d213531c7b80dabb713296b74451
+						<a class="nav-link" href="Favoris">FAVORIS</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="">Deconnexion</a>
+						<a class="nav-link" href="Profil">PROFIL</a>
 					</li>
-				<?php endif;
-					// else: ?> 
+
 					<li class="nav-item">
-<<<<<<< HEAD
-                 	 	<a class="nav-link" href="">Inscription</a>
+						<a class="nav-link" href="Deconnexion">DECONNEXION</a>
 					</li>
+
+					<?php endif;
+					// else: ?>  <!-- Fin du menu backend -->
+
 					<li class="nav-item">
-	                  	<a class="nav-link" href="">Connexion</a>
-					  </li>
-				
-				
-=======
-	                  	<a class="nav-link" href="Inscription">Inscription</a>
+	                  	<a class="nav-link" href="Inscription">INSCRIPTION</a>
               		</li>
->>>>>>> eaca720a8989d213531c7b80dabb713296b74451
-				</ul>
-			
+
+					<li class="nav-item">
+                 	 	<a class="nav-link" href="Connexion">CONNEXION</a>
+					</li>  
+				</ul>		
 			</div>
 		</nav>	
-    </div>
+	</div>
+	
 	<body>
 		<?= $content_for_layout ?>
     </body>
