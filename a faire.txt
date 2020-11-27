@@ -1,7 +1,7 @@
 CHOSE A FAIRE :
 
-GABRIEL : affichageAccueil / affichageFavoris / affichageTableaudebord
+GABRIEL : affichageAccueil / affichageFavoris /affichageMisdecote/  affichageTableaudebord / affichageRessources
 
-THOMAS : affichageFooter(fait) / affichageContact(fait) / affichageProfil / affichageMisdecote
+THOMAS : affichageFooter(fait) / affichageContact(fait) / affichageProfil 
 
-ALLAN : affichageConnexion(fait) / affichageInscription(fait) / affichageMenuFrontend(fait) / affichageMenuBackend(fait) / affichageCreationsEditions / Création de la BDD(fait)
+ALLAN : affichageConnexion(fait) / affichageInscription(fait) / affichageMenuFrontend(fait) / affichageMenuBackend(fait) / affichageCreationsEditions(bouton créer ressources avec le choix) / Création de la BDD(fait)
