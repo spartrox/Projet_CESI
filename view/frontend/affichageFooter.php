@@ -10,18 +10,45 @@
       <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Qui sommes-nous ?</h5>
-        <p>3 étudiants en Bachelor RIL (Responsable en Ingénierie des Logiciels)</p>
-        <p>Nous avons eu a coeur de créer ce projet afin de venir en aide aux personnes ayant des difficultés, ainsi qu'apporter des conseils, de l'aide et du soutiens.</p>
+        <h5 class="font-weight-bold text-uppercase mb-4">Titre contenu pied de page</h5>
+        <p>Ici, vous pouvez utiliser des lignes et des colonnes pour organiser le contenu de votre pied de page.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum.</p>
 
       </div>
       <!-- Grid column -->
 
       <hr class="clearfix w-100 d-md-none">
 
-      <!-- Grid columnnnn -->
+      <!-- Grid column -->
       <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="#!">PROJECTS</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">ABOUT US</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">BLOG</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">AWARDS</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
       <!-- Grid column -->
 
       <hr class="clearfix w-100 d-md-none">
@@ -35,7 +62,7 @@
         <ul class="list-unstyled">
           <li>
             <p>
-              <i class="fas fa-home mr-3"></i>CESI La Rochelle</p>
+              <i class="fas fa-home mr-3"></i> La Rochelle cesi</p>
           </li>
           <li>
             <p>
@@ -89,7 +116,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright°
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
   </div>
   <!-- Copyright -->
 
