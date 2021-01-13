@@ -26,7 +26,7 @@
         <h3><i class="far fa-user-circle"></i> COMMENTER ET PARTAGER</h3>
     </div>
 </div>
-<div style="background-color: lightgrey">
+<div class="partenaire">
     <div class="container">
         <div class="row">
             <div><h2>Partenaires</h2></div>

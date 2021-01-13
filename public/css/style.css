@@ -7,3 +7,9 @@
 .messageConnexion{
     text-align: center;
 }
+
+.partenaire{
+    background-color: lightgrey; 
+    padding-top:1%; 
+    padding-bottom:1%;
+}
