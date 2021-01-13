@@ -19,8 +19,10 @@
 				<form>
 					Nom entier :<br>
 					<input type="text" placeholder="Nom entier...."><br>
+					<br>
 					Email:<br>
 					<input type="text" placeholder="Email..."></br>
+					<br>
 					Message:<br>
 					<textarea rows="4" placeholder="Message.."></textarea><br>
 					<button class="button">Envoyer</button>
