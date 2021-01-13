@@ -1,4 +1,4 @@
-<h2 style="text-align: center; color:green; padding-top:5%">CONNEXION</h2>	
+<h2 style="text-align: center; padding-top:5%" class="co">CONNEXION</h2>	
 		<br><br>
 			<div class="container">
 				<form class="container col-md-5 formulaire"  action="" method="post">			
@@ -24,6 +24,10 @@
 			</div>
 
 		<div class="container" >
+<<<<<<< HEAD
 			<p>Vous n'avez pas de compte ? <a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
+=======
+			<p>Vous n'avez pas encore de compte ?<a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
+>>>>>>> 9fb34b54ea53526ed8c2965f3314bcd9300568b7
 		</div>
                 
