@@ -66,7 +66,7 @@
         </a>
         <!-- Bouton forlumaire de contact +-->
         <div class="col-12 col-lg-6 d-flex justify-content-center" style="">
-            <a class="btn btn-primary" href="Contacter">Contact</a>
+            <a class="btn btn-primary" href="Contact">Nous contacter</a>
         </div>
 
 
