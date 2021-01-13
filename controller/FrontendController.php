@@ -23,31 +23,31 @@ class FrontendController extends Controller
         $this->render("Contact");
     }
 
-    function addMember($pseudo, $mail, $mdp){
-        $memberManager = new MemberManager();
+    function addMember($pseudo, $email, $mdp){
+        $memberManager = new Membre();
            
           $pseudoExist = $memberManager->checkPseudo($pseudo);
-         $mailExist = $memberManager->checkMail($mail);  
+         $mailExist = $memberManager->checkMail($email);  
 
              if ($pseudoExist):
                  throw new \Exception('Pseudo déja utilisé, veuillez en trouver un autre !');     
              endif;
 
              if ($mailExist):
-                 throw new \Exception('Adresse mail déja utilisé, veuillez en trouver une autre !');
+                 throw new \Exception('Adresse email déja utilisé, veuillez en trouver une autre !');
              endif; 
                  
                  if (!($pseudoExist) && !($mailExist)):
 
                      $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-                     $newMember = $memberManager->createMember($pseudo, $mail, $mdp);
+                     $newMember = $memberManager->createMember($pseudo, $email, $mdp);
 
                      header('Location: Connexion');
                  else:
                          throw new \Exception('Erreurs lors de l\'inscription veuillez recommencer !');
                     endif;
 
-           return $addMember;
+           return $newMember;
      }
 
 

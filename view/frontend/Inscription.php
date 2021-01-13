@@ -1,7 +1,7 @@
 <h2 class="titrePage">INSCRIPTION</h2>
         <br/><br />
             <div class="container">
-                <form class="col-md-5 container"  action="" method="post">
+                <form class="col-md-5 container"  action="addMembre" method="post">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
