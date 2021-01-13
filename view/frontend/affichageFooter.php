@@ -19,7 +19,7 @@
 
       <hr class="clearfix w-100 d-md-none">
 
-      <!-- Grid column -->
+      <!-- Grid columnnnn -->
       <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 
       <!-- Grid column -->
