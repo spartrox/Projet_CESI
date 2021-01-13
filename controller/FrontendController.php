@@ -17,6 +17,11 @@ class FrontendController extends Controller
     {
         $this->render("Connexion");
     }
+
+    function  Contact()
+    {
+        $this->render("Contact");
+    }
 /*
     function addMember($pseudo, $mail, $mdp){
         $memberManager = new MemberManager();
