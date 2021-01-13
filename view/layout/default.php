@@ -63,7 +63,7 @@
 
 
 					<li class="nav-item">
-	                  	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Insciprtion</a>
+	                  	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Inscription</a>
               		</li>
 
 					<li class="nav-item">
