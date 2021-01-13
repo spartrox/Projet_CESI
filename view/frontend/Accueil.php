@@ -3,11 +3,11 @@
 </div>
 <div class="container" style="margin-top: 2%; margin-bottom: 2%;">
     <div class="row">
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
-            <a class="btn" href="Connexion">Connexion</a>
+        <div class="col-12 col-lg-6 d-flex justify-content-center" style="">
+            <a class="btn btn-primary" href="Connexion">Connexion</a>
         </div>
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
-            <a class="btn" href="Inscription">Inscription</a>
+        <div class="col-12 col-lg-6 d-flex justify-content-center" style="">
+            <a class="btn btn-primary" href="Inscription">Inscription</a>
         </div>
     </div>
 </div>
