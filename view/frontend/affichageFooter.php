@@ -65,10 +65,15 @@
           <i class="fab fa-twitter"></i>
         </a>
         <!-- Bouton forlumaire de contact +-->
+        <a type="button" class="btn-floatting btn-fb">
+          <i class="fas fa-envelope mr-3"></i>
+        </a>
+
+        <!--
         <div class="col-15 col-lg-8 d-flex justify-content-center" style="">
             <a class="btn btn-primary" href="Contact">Nous contacter</a>
         </div>
-
+        +-->
 
       </div>
       <!-- Grid column -->
