@@ -5,9 +5,9 @@ class Conf
     static $databases = array(
         "default" => array(
             "host" => "localhost",
-            "database" => "id15097592_projetcesi",
-            "login" => "id15097592_allan",
-            "password" => "Laconfrerie404*"
+            "database" => "projet_cesi",
+            "login" => "root",
+            "password" => ""
         )
     );
 }
