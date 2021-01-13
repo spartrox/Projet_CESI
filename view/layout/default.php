@@ -10,8 +10,8 @@
 		<title>(Re)Sources/Lationelles</title>
 
 		  <!-- CSS/JQUERY/JAVASCRIPT -->
-		  <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/style.css" ?>">
-	      <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/bootstrap.min.css" ?>">
+		  <link rel="stylesheet" href="<?= BASE_SITE . DS . "css/style.css" ?>">
+	      <link rel="stylesheet" href="<?= BASE_SITE . DS . "css/bootstrap.min.css" ?>">
    		  <link href='https://fonts.googleapis.com/css?family=Raleway:100,400' rel='stylesheet' type='text/css'>
 		  <link rel="stylesheet" href="<?= BASE_SITE . DS . "/css/font-awesome.css" ?>">
 		  <script src="https://kit.fontawesome.com/165449b566.js" crossorigin="anonymous"></script>
