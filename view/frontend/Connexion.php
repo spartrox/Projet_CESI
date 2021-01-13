@@ -24,6 +24,6 @@
 			</div>
 
 		<div class="container" >
-			<p>Vous n'avez pas encore de compte ?<a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
+			<p>Vous n'avez pas de compte ? <a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
 		</div>
                 
