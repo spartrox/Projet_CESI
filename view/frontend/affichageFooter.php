@@ -54,7 +54,7 @@
       <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
 
         <!-- Social buttons -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre</h5>
+        <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre & nous contacter</h5>
 
         <!-- Facebook -->
         <a type="button" class="btn-floating btn-fb">
@@ -64,15 +64,16 @@
         <a type="button" class="btn-floating btn-tw">
           <i class="fab fa-twitter"></i>
         </a>
-        <!-- Google +-->
-        <a type="button" class="btn-floating btn-gplus">
-          <i class="fab fa-google-plus-g"></i>
-        </a>
-        <!-- Dribbble -->
-        <a type="button" class="btn-floating btn-dribbble">
-          <i class="fab fa-dribbble"></i>
+        <!-- Bouton forlumaire de contact +-->
+        <a type="button" class="btn-floating">
+        <i></i>
         </a>
 
+        <div class="col-12 col-lg-6 d-flex justify-content-center" style="">
+            <a class="btn btn-primary" href="Connexion">Connexion</a>
+        </div>
+
+        
       </div>
       <!-- Grid column -->
 
