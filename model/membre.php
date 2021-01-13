@@ -9,7 +9,7 @@ class Membre  extends Model {
     	// Connexion à la base de données
     	$bdd = $this->Conf();
 
-        $req = $bdd->prepare('SELECT id, pseudo, password FROM visiteurs WHERE pseudo = ?');
+        $req = $bdd->prepare('SELECT type_account, id, pseudo, password FROM member WHERE pseudo = ?');
         $req->execute(array($pseudo));
         $member = $req->fetch();
 

@@ -50,5 +50,34 @@ class FrontendController extends Controller
            return $newMember;
      }
 
+           //Bouton page connexion
+           function pageConnexionSubmit($pseudo){
+            $memberManager = new Membre();
+    
+              $member = $memberManager->loginMember($pseudo);
+              $mdpCorrect = password_verify($_POST['mdpConnect'], $member['password']);
+    
+                if (!isset($member['id'])):
+                      throw new \Exception("Mauvais identifiant !");
+                  
+                    else:
+                        if ($mdpCorrect):
+    
+                            $_SESSION['id'] = $member['id'];
+                            $_SESSION['pseudo'] = $member['pseudo'];
+                            $_SESSION['super_admin'] = $member['super_admin']; // A GÉRER AVEC ÉNUM DE LA BDD
+                            $_SESSION['admin'] = $member['admin'];
+                            $_SESSION['moderateur'] = $member['moderateur'];
+                            $_SESSION['citoyen'] = $member['citoyen'];
+
+                            header('Location: index.php');
+                          
+                        else:
+                            throw new \Exception("Mauvais mot de passe !");
+                        endif;
+    
+                    endif;     
+          }
+
 
 }

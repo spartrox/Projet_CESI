@@ -12,7 +12,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope" ></i> </span>
                         </div>
-                        <input class="form-control" name="mail" placeholder="Mail" id="mailI" type="email" value="<?php if(isset($email)) { echo $email; } ?>" required>
+                        <input class="form-control" name="mail1" placeholder="Mail" id="mail1" type="email" value="<?php if(isset($email)) { echo $email; } ?>" required>
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
