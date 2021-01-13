@@ -22,11 +22,11 @@ class FrontendController extends Controller
     {
         $this->render("Contact");
     }
-/*
+
     function addMember($pseudo, $mail, $mdp){
         $memberManager = new MemberManager();
            
-         $pseudoExist = $memberManager->checkPseudo($pseudo);
+          $pseudoExist = $memberManager->checkPseudo($pseudo);
          $mailExist = $memberManager->checkMail($mail);  
 
              if ($pseudoExist):
@@ -35,7 +35,7 @@ class FrontendController extends Controller
 
              if ($mailExist):
                  throw new \Exception('Adresse mail déja utilisé, veuillez en trouver une autre !');
-             endif;
+             endif; 
                  
                  if (!($pseudoExist) && !($mailExist)):
 
@@ -49,7 +49,6 @@ class FrontendController extends Controller
 
            return $addMember;
      }
-*/
 
 
 }

@@ -2,4 +2,4 @@
 session_start();
 $_SESSION = array();
 session_destroy();
-header("Location: ");
+header("Location: BASE_URL . DS . frontend/Accueil");
