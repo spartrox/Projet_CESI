@@ -18,7 +18,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                        <input class="form-control" placeholder="mot de passe" id="mdpI" name="mdp" type="password" required>
+                        <input class="form-control" placeholder="mot de passe" id="mdp1" name="mdp1" type="password" required>
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
