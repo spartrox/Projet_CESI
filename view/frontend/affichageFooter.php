@@ -10,9 +10,9 @@
       <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Titre contenu pied de page</h5>
-        <p>Ici, vous pouvez utiliser des lignes et des colonnes pour organiser le contenu de votre pied de page.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum.</p>
+        <h5 class="font-weight-bold text-uppercase mb-4">Qui sommes-nous ?</h5>
+        <p> 3 étudiants du CESI La Rochelle en bachelor RIL (Responsable en Ingénierie des Logiciels)</p>
+        <p>Nous avons eu a coeur de faire naitre le projet afin de venir en aide aux étudiants dans la difficultés, ayant des questions ou tout simplement d'informations. </p>
 
       </div>
       
