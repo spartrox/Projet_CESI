@@ -1,4 +1,4 @@
-<div style="background-color: #03989e">
+<div style="background-color: #03989e; padding-top:5%">
     <img src="<?= BASE_SITE . DS . "/images/logo.png" ?>" alt="Logo (Re)Sources/Lationelles" style="display: block; margin-left: auto; margin-right: auto; width: 25%">
 </div>
 <div class="container" style="margin-top: 2%; margin-bottom: 2%;">
@@ -39,7 +39,7 @@
         </div>
         <div class="row" style="text-align:center;">
             <div class="col-3">CESI</div>
-            <div class="col-3">Ministère de la solidarité et de la santé</div>
+            <div class="col-3">Ministère des Solidarités et de la Santé</div>
             <div class="col-3">La Confrerie 404</div>
             <div class="col-3">La Rochelle</div>
         </div>
