@@ -13,3 +13,10 @@
     padding-top:1%; 
     padding-bottom:1%;
 }
+
+.contact{
+    background-color: lightgrey;
+    padding-top:10%;
+    padding-bottom:5%;
+    text-align: center;
+}
