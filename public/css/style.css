@@ -15,8 +15,55 @@
 }
 
 .contact{
-    background-color: lightgrey;
+    background-color: white;
     padding-top:10%;
     padding-bottom:5%;
     text-align: center;
+}
+
+.contour{
+    background-color: lightgrey; 
+    margin-bottom: 1%;
+}
+
+.aligneDroite{
+    text-align: right;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 5%;
+    
+}
+
+.aligneGauche{
+    text-align: left;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+}
+
+.boutons{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.accueil{
+    background-color: #03989e;
+    padding-top:5%;
+}
+
+.logoPartenaire{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nomPartenaire{
+    text-align:center;
 }
