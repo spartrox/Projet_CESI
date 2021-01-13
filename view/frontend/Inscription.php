@@ -1,4 +1,4 @@
-<h2 style="text-align: center;  color:green; padding-top:5%">INSCRIPTION</h2>
+<h2 class="titrePage">INSCRIPTION</h2>
         <br/><br />
             <div class="container">
                 <form class="col-md-5 container"  action="" method="post">
@@ -32,6 +32,6 @@
                           </div>
                  </form> <br>
 
-              <p>Déja un compte ? <a href="Connexion">Connectez-vous!</a></p>
+              <p class="messageConnexion">Déja un compte ? <a href="Connexion">Connectez-vous!</a></p>
            </div>  
 
