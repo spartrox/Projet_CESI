@@ -22,7 +22,7 @@
 	   
 	</head>
 	<div style="">
-    	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" style="position:fixed; background-color:#D4D6D4; width:100%" >
+    	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" style="position:fixed; background-color:#D4D6D4; width:100%;z-index: 10" >
 			<a class="navbar-brand" href="<?= BASE_URL . DS . "frontend/Accueil" ?>"><img src="<?= BASE_SITE . DS . "/images/logoMenu.png" ?>"></img></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -40,34 +40,34 @@
 					// else: ?>  <!-- Fin du menu backend -->
 					
 					<div class="dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="tableauDeBord/Tableaudebord" role="button" aria-haspopup="true" aria-expanded="false">TABLEAU DE BORD</a> 
+					<a class="nav-link dropdown-toggle text-uppercase" data-toggle="dropdown" href="tableauDeBord/Tableaudebord" role="button" aria-haspopup="true" aria-expanded="false">Tableau de bord</a> 
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">CATALOGUE</a>
-							<a class="dropdown-item" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">CRÉATION/ÉDITION</a>
-							<a class="dropdown-item" href="<?= BASE_URL . DS . "backend/AutresActions" ?>">AUTRES ACTIONS</a>
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/AutresActions" ?>">Autres Actions</a>
 						</div>
 					</div>
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= BASE_URL . DS . "backend/Favoris" ?>">FAVORIS</a>
+						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>">Favoris</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= BASE_URL . DS . "backend/Profil" ?>">PROFIL</a>
+						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>">Profil</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>">DECONNEXION</a>
+						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>">Déconnexion</a>
 					</li>
 
 
 
 					<li class="nav-item">
-	                  	<a class="nav-link" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">INSCRIPTION</a>
+	                  	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Insciprtion</a>
               		</li>
 
 					<li class="nav-item">
-                 	 	<a class="nav-link" href="<?= BASE_URL . DS . "frontend/Connexion" ?>">CONNEXION</a>
+                 	 	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>">Connexion</a>
 					</li>
 					<form class="form-inline">
 						<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
