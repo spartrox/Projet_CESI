@@ -12,8 +12,8 @@
 				<h1>Contactez-nous</h1><br>
 			</div>
 			<div class="hedding-description">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				quis nostrud exercitation ullamco laboris nisi ut aliquip  laborum.</p>
+				<p>Pour nous contacter directement par mail il vous suffit de compléter le formulaire de contact
+				ci-dessous en renseignant les champs demandés.</p>
 			</div>
 			<div class="form-input">
 				<form>
@@ -25,6 +25,7 @@
 					<br>
 					Message:<br>
 					<textarea rows="4" placeholder="Message.."></textarea><br>
+					<br>
 					<button class="button">Envoyer</button>
 				</form> 
 			</div>
