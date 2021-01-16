@@ -53,6 +53,10 @@
 					</li>
 
 					<li class="nav-item">
+						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>">Mis de coté</a>
+					</li>
+
+					<li class="nav-item">
 						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>">Profil</a>
 					</li>
 

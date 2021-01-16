@@ -27,7 +27,16 @@ class BackendController extends Controller
 
     function Favoris()
     {
+        $d['favoris'] = $this->DeterminerFavorisMisDeCote('1', 'favory');
+        $this->set($d);
         $this->render("Favoris");
+    }
+
+    function MisDeCote()
+    {
+        $d['misdecotes'] = $this->DeterminerFavorisMisDeCote('1', 'aside');
+        $this->set($d);
+        $this->render("MisDeCote");
     }
 
     function Profil()
