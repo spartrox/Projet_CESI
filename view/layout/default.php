@@ -48,6 +48,18 @@
 						</div>
 					</div>
 
+					<div class="btn-group">
+						<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase">Tableau de bord</a>
+						<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="sr-only">Toggle Dropdown</span>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
+							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/AutresActions" ?>">Autres Actions</a>
+						</div>
+					</div>
+
 					<li class="nav-item">
 						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>">Favoris</a>
 					</li>
