@@ -38,15 +38,6 @@
 				<?php if(isset($_SESSION['id'])): ?> <!-- Début du menu backend -->
 					<?php endif;
 					// else: ?>  <!-- Fin du menu backend -->
-					
-					<div class="dropdown">
-					<a class="nav-link dropdown-toggle text-uppercase" data-toggle="dropdown" href="tableauDeBord/Tableaudebord" role="button" aria-haspopup="true" aria-expanded="false">Tableau de bord</a> 
-						<div class="dropdown-menu">
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/AutresActions" ?>">Autres Actions</a>
-						</div>
-					</div>
 
 					<div class="btn-group">
 						<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase">Tableau de bord</a>
