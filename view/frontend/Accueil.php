@@ -1,12 +1,37 @@
 <div class="accueil">
-    <img src="<?= BASE_SITE . DS . "/images/logo.png" ?>" alt="Logo (Re)Sources/Lationelles" class="logo">
+    <div id="carouselActualites" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img class="d-block logo" src="<?= BASE_SITE . DS . "/images/logo.png" ?>" alt="Logo (Re)Sources/Lationelles">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Bienvenue !</h5>
+                <p>Ici vous pouvez échanger et partager vos ressources !</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img class="d-block logo" src="<?= BASE_SITE . DS . "/images/Cesi_Logo.png" ?>" alt="Logo Cesi">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Cesi de La Rochelle</h5>
+                <p></p>
+            </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselActualites" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselActualites" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </div>
 </div>
 <div class="container boutons">
     <div class="row">
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
+        <div class="col-6 col-lg-6 d-flex justify-content-center">
             <a class="btn btn-primary" href="Connexion">Connexion</a>
         </div>
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
+        <div class="col-6 col-lg-6 d-flex justify-content-center">
             <a class="btn btn-primary" href="Inscription">Inscription</a>
         </div>
     </div>

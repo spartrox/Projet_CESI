@@ -55,7 +55,7 @@
 
 .accueil{
     background-color: #03989e;
-    padding-top:5%;
+    padding-top:75px;
 }
 
 .logoPartenaire{
@@ -66,4 +66,8 @@
 
 .nomPartenaire{
     text-align:center;
+}
+
+.espaceEnHaut{
+    padding-top: 5%;
 }
