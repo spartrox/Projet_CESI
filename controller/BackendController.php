@@ -17,6 +17,22 @@ class BackendController extends Controller
 
     function Catalogue()
     {
+        //Récupération des ressources
+        $this->modRessources = $this->loadModel("Ressources");
+        $params = ['projections' => 'ressources.*'];
+        $d['ressources'] = $this->modRessources->find($params);
+        //Récupération des id des favoris
+        $favoris = $this->DeterminerFavorisMisDeCote('1', 'favory');
+        $idFavoris = [];
+        foreach ($favoris as $favori) {array_push($idFavoris, $favori->id);}
+        $d['favoris'] = $idFavoris;
+        //Récupération des id des mis de côté
+        $misdecotes = $this->DeterminerFavorisMisDeCote('1', 'aside');
+        $idMisDeCotes = [];
+        foreach ($misdecotes as $misdecote) {array_push($idMisDeCotes, $misdecote->id);}
+        $d['misdecotes'] = $idMisDeCotes;
+        //Préparation de l'affichage
+        $this->set($d);
         $this->render("Catalogue");
     }
 
