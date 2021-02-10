@@ -1,7 +1,7 @@
 <?php 
 
 class Membre  extends Model {
-
+	var $table = "member";
     
     //Récupération du pseudo
     public function loginMember($pseudo){
