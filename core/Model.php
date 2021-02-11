@@ -206,7 +206,7 @@ class Model
         $sql .= implode(',', $cond);
 
         $sql .= ');';
-
+        //var_dump($sql);
 
         $pre = $this->db->prepare($sql);
         $pre->execute();

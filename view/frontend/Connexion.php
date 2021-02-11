@@ -27,7 +27,7 @@
 <h2 class="titrePage">CONNEXION</h2>	
 		<br><br>
 			<div class="container">
-				<form class="container col-md-5 formulaire"  action="" method="post">			
+				<form class="container col-md-5 formulaire"  method="post">			
 					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -54,3 +54,5 @@
 				<p>Vous n'avez pas de compte ? <a href="Inscription"> Cliquez ici pour vous inscrire !</a></p>
 			</div>
                 
+<!-- script pour faire fonctionner le modal Erreur -->
+<script> $('#exampleModal').modal('show') </script>

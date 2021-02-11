@@ -64,5 +64,5 @@
               <p class="messageConnexion">Déja un compte ? <a href="Connexion">Connectez-vous!</a></p>
       </div>  
 
-<!-- script pour faire fonction le modal Erreur -->
+<!-- script pour faire fonctionner le modal Erreur -->
 <script> $('#exampleModal').modal('show') </script>
