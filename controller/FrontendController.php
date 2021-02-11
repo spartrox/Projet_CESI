@@ -8,9 +8,45 @@ class FrontendController extends Controller
         $this->render("Accueil");
     }
 
+
     function Inscription()
     {
+        // Par défaut il est faux
+        $d["erreur"] = false;
+        $d["msgErreur"] = false;
+        $this -> set($d);
+
+        // Permet de savoir si on a reçus un formulaire
+        if (!empty($_POST)){ 
+
+            $d = $this->CheckFormulaire();
+            $this -> set($d);
+
+            // si y a une erreur = true, sinon y a pas d'erreurs
+            if($d["erreur"] == false){
+        
+                // Sert à charger le model
+                $modmembre = $this->loadModel("membre");
+
+                // Colonnes à utiliser de la BDD
+                $colonnes = ["pseudo", "email", "pasword"];
+
+                // Déterminer les données récupérées depuis le formulaire, qui seront utilisées
+                $donnees = [ $_POST["pseudo"], $_POST["email"], $_POST["mdp"] ];
+
+                // 
+                $modmembre-> InsertAI($colonnes,$donnees);
+
+                // Redirection sur la page Connexion
+                $this->redirect("/frontend/Connexion");
+            }
+
+        }
+
+
+
         $this->render("Inscription");
+
     }
     
     function Connexion()
@@ -23,33 +59,33 @@ class FrontendController extends Controller
         $this->render("Contact");
     }
 
-    function addMember($pseudo, $email, $mdp){
-        $memberManager = new Membre();
-           
-          $pseudoExist = $memberManager->checkPseudo($pseudo);
-         $mailExist = $memberManager->checkMail($email);  
+    function CheckFormulaire(){
 
-             if ($pseudoExist):
-                 throw new \Exception('Pseudo déja utilisé, veuillez en trouver un autre !');     
-             endif;
+        $pseudo = $_POST["pseudo"];
+        
+        // Sert à charger le model
+        $modmembre = $this->loadModel("membre");
+        
+        //Select table membre et vérification si le pseudo existe ou pas 
+        $params = ["projection" => "member.pseudo","conditions" => "pseudo = '$pseudo'"];
 
-             if ($mailExist):
-                 throw new \Exception('Adresse email déja utilisé, veuillez en trouver une autre !');
-             endif; 
-                 
-                 if (!($pseudoExist) && !($mailExist)):
+        // Lance la requête
+        $pseudoExiste = $modmembre->findFirst($params); 
 
-                     $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-                     $newMember = $memberManager->createMember($pseudo, $email, $mdp);
+        // Par défaut c'est a false
+        $d["erreur"] = false;
 
-                     header('Location: Connexion');
-                 else:
-                         throw new \Exception('Erreurs lors de l\'inscription veuillez recommencer !');
-                    endif;
+        //différent de null
+        if($pseudoExiste != null){
 
-           return $newMember;
+            // Si y il a un problème sa passe à true
+            $d["erreur"] = true;
+            $d["msgErreur"] = "Pseudo déja utilisé";
+
+        } 
+        return $d;
      }
-
+/*
            //Bouton page connexion
            function pageConnexionSubmit($pseudo){
             $memberManager = new Membre();
@@ -78,6 +114,6 @@ class FrontendController extends Controller
     
                     endif;     
           }
-
+*/
 
 }

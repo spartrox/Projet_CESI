@@ -1,3 +1,5 @@
+
+<!-- Template, page de base -->
 <!DOCTYPE html>
 <html lang="FR">
 	<head>
@@ -47,7 +49,6 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
 							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/AutresActions" ?>">Autres Actions</a>
 						</div>
 					</div>
 
@@ -79,10 +80,8 @@
 					<form class="form-inline">
 						<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
 					</form>
-  </div>	
-					
-				</ul>		
-			</div>
+				</ul>
+  			</div>	
 		</nav>	
 	</div>
 	
@@ -91,7 +90,5 @@
     </body>
 
 	<?php require_once ROOT . DS . "view/frontend/affichageFooter.php" ?>
-
-	
 
 </html>
