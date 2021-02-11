@@ -169,7 +169,15 @@ class BackendController extends Controller
 
     function Deconnexion()
     {
-        $this->render("Deconnexion");
+        /*
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+        header("Location: BASE_URL . DS . frontend/Accueil");
+        */
+
+        // Redirect permet de rediriger une page 
+        $this->redirect("/frontend/Accueil");
     }
 
     function DeterminerFavorisMisDeCoteExploite($id_member, $etat)

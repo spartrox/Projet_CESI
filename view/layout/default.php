@@ -27,59 +27,68 @@
     	<nav class="navbar navbar-expand-lg navbar-light " id="fondMenu" style="position:fixed; background-color:#D4D6D4; width:100%;z-index: 10" >
 			<a class="navbar-brand" href="<?= BASE_URL . DS . "frontend/Accueil" ?>"><img src="<?= BASE_SITE . DS . "/images/logoMenu.png" ?>"></img></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			  
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= BASE_URL . DS . "frontend/Accueil" ?>">ACCUEIL</a>
-					</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="<?= BASE_URL . DS . "frontend/Accueil" ?>">ACCUEIL</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
+						</li>
 
-				<?php if(isset($_SESSION['id'])): ?> <!-- Début du menu backend -->
-					<?php endif;
-					// else: ?>  <!-- Fin du menu backend -->
-
-					<div class="btn-group">
-						<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase">Tableau de bord</a>
-						<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="sr-only">Toggle Dropdown</span>
-						</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
-							<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
+						<!-- Début du menu backend -->
+					<?php if (isset($_SESSION['id'])): ?> 
+	
+						<div class="btn-group">
+							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase">Tableau de bord</a>
+							<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Toggle Dropdown</span>
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>">Favoris</a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>">Mis de coté</a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
+							</div>
 						</div>
-					</div>
 
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>">Favoris</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>">Profil</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>">Mis de coté</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>">Déconnexion</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>">Profil</a>
-					</li>
+						<!-- Début du menu backend admin -->
+					<?php elseif (isset($_SESSION['admin'])): ?>  
 
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>">Déconnexion</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>">Administrateur</a>
+						</li>	
 
+						<!-- Fin du menu backend -->
+					<?php endif; ?> 
+						
+					<?php if (!isset($_SESSION['id'])): ?> 					
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Inscription</a>
+						</li>
 
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>">Connexion</a>
+						</li>	
+						
+					<?php endif; ?> 
 
-					<li class="nav-item">
-	                  	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Inscription</a>
-              		</li>
+						<form class="form-inline">
+							<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
+						</form>
 
-					<li class="nav-item">
-                 	 	<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>">Connexion</a>
-					</li>
-					<form class="form-inline">
-						<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
-					</form>
+						
 				</ul>
   			</div>	
 		</nav>	
