@@ -4,7 +4,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <?php if($nouveau){ ?><span class='badge badge-secondary'>New</span><?php } ?>
-                <?php var_dump($favory); if($favory){ ?><i class="float-right fas fa-check fa-lg m-1" style="color:green" title="Exploitée"></i><?php } ?>
+                <?php if($favory){ ?><i class="float-right fas fa-check fa-lg m-1" style="color:green" title="Exploitée"></i><?php } ?>
             </div>
             <!-- Titre de la ressource -->
             <div class="col-6">
@@ -53,7 +53,7 @@
                     foreach($categories as $categorie)
                     {
                         $checked = (in_array($categorie->id, $idCategoriesRessource)) ? 'checked' : '';
-                        echo "<input name='categorie$categorie->title' type='checkbox' class='form-check-input' id='$categorie->title' value='$categorie->id' $checked>";
+                        echo "<input name='categories[$categorie->title]' type='checkbox' class='form-check-input' id='$categorie->title' value='$categorie->id' $checked>";
                         echo "<label class='form-check-label' for='$categorie->title'>$categorie->title</label><br>";
                     }
                 ?>

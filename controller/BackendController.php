@@ -68,10 +68,13 @@ class BackendController extends Controller
             //Détermination si le formulaire de modification est envoyé
             if (!empty($_POST))
             {
+                //var_dump($_POST);
                 //Update de la ressource
                 $image = ($_POST['image'] == '') ? $_POST['imageold'] : $_POST['image'] ;
                 $params = ['donnees' => ['title' => $_POST['title'], 'content' => $_POST['content'], 'image' => $image], 'conditions' => ['id' => $idRessource]];
                 $this->modRessources->update($params);
+
+                $this->ModifierCategoriesRessource($idRessource, $_POST['categories']);
 
             }
 
@@ -198,7 +201,7 @@ class BackendController extends Controller
         $this->modFavoris = $this->loadModel("Favoris");
         $params = ['projection' => 'state_ressources.*', 'conditions' => 'id_ressources = ' .$id_ressources. 'and id_member = '.$id_member.' and state = "'.$etat.'"'];
         $etat = $this->modFavoris->find($params);
-        var_dump($etat);
+        
         return ($etat == null) ? true : false;
     }
 
@@ -269,6 +272,27 @@ class BackendController extends Controller
         $this->modMember = $this->loadModel("membre");
         $params = ['projections' => 'member.*', 'conditions' => "id = $idMember"];
         return $this->modMember->findFirst($params);
+    }
+
+    function ModifierCategoriesRessource($id_ressource, $categoriesFormulaire)
+    {
+        $this->modCategoriesRessources = $this->loadModel("CategoriesRessources");
+        
+        $ancienneCategories = $this->DeterminerCategoriesRessource($id_ressource);
+
+        $dedans = true;
+        foreach ($ancienneCategories as $ancienne) {
+            $dedans = in_array($ancienne, $categoriesFormulaire);
+            if (!$dedans) $this->modCategoriesRessources->delete(["conditions" => ["id_ressources" => $id_ressource, "id_category" => $ancienne->id]]);
+        }
+        
+        $dedans = true;
+        foreach ($categoriesFormulaire as $categorie) {
+            $dedans = in_array($categorie, $ancienneCategories);
+            if (!$dedans) $this->modCategoriesRessources->insert(["id_ressources","id_category"], [$id_ressource, $categorie]);
+        }
+
+        
     }
 
 }
