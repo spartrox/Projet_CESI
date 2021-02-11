@@ -10,6 +10,9 @@
             <div class="col-6">
                 <input name="title" type="text" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="title" value="<?= $ressource->title?>">
             </div>
+            <div class="col-6">
+                <p class="float-right"><small>Modifié le <?= $ressource->register_date ?> par <?= $ressource->creator ?></small></p>
+            </div>
         </div>
         <div class="form-group row">
             <!-- Image de la ressource -->
@@ -65,8 +68,8 @@
             </div>
         </div>
     </form>
-    <div class="row">
-        <p>Dernière version : <?= $ressource->register_date ?> par <?= $ressource->creator ?></p>
+    <div class="row pt-5 pb-5">
+        <a class="btn btn-primary" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Retour au Catalogue</a>
     </div>
     <br>
     <!-- Zone des commentaires affichée lors de la visualisation de la ressource -->
