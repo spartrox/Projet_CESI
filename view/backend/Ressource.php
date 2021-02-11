@@ -76,6 +76,14 @@
         </div>
         <br>
         <div class="row">
+            <textarea class="form-control w-75" placeholder="Laissez un commentaire"></textarea>
+        </div>
+        <br>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+        <br>
+        <div class="row listecommentaires overflow-auto">
             <table class="table table-responsive-lg w-75">
             <?php 
                 foreach ($commentaires as $commentaire) {
@@ -85,14 +93,6 @@
                 if (empty($commentaires)) { echo '<tr><td>Soyez la première ou le premier à commenter !</td></tr>'; }
             ?>
             </table>
-        </div>
-        <br>
-        <div class="row">
-            <textarea class="form-control w-75" placeholder="Laissez un commentaire"></textarea>
-        </div>
-        <br>
-        <div class="row">
-            <button type="submit" class="btn btn-primary">Envoyer</button>
         </div>
     <?php } ?>
 </div>
