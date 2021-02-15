@@ -75,3 +75,17 @@
 .listecommentaires{
     height: 600px;
 }
+
+.state{
+    opacity: 25%;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+ }
+
+.state:hover{
+   opacity: 100%;
+}
+
+.cliquable{
+    cursor: pointer;
+}

@@ -12,11 +12,11 @@ class BackendController extends Controller
     function Tableaudebord()
     {
         //Favoris
-        $d['favoris'] = $this->DeterminerFavorisMisDeCoteExploite('1', 'favory');
+        $d['favoris'] = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'favory');
         //Mis de Côté
-        $d['misdecotes'] = $this->DeterminerFavorisMisDeCoteExploite('1', 'aside');
+        $d['misdecotes'] = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'aside');
         //Exploités
-        $d['exploites'] = $this->DeterminerFavorisMisDeCoteExploite('1', 'exploited');
+        $d['exploites'] = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'exploited');
         //Créations
         $d['creations'] = $this->DeterminerCréationRessources('Gabriel');
         //Préparation de l'affichage
@@ -32,17 +32,17 @@ class BackendController extends Controller
         $ressources =  $this->modRessources->find($params);
         $d['ressources'] = $ressources;
         //Récupération des id des favoris
-        $favoris = $this->DeterminerFavorisMisDeCoteExploite('1', 'favory');
+        $favoris = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'favory');
         $idFavoris = [];
         foreach ($favoris as $favori) {array_push($idFavoris, $favori->id);}
         $d['favoris'] = $idFavoris;
         //Récupération des id des mis de côté
-        $misdecotes = $this->DeterminerFavorisMisDeCoteExploite('1', 'aside');
+        $misdecotes = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'aside');
         $idMisDeCotes = [];
         foreach ($misdecotes as $misdecote) {array_push($idMisDeCotes, $misdecote->id);}
         $d['misdecotes'] = $idMisDeCotes;
         //Récupération des id des ressources exploitées
-        $exploitees = $this->DeterminerFavorisMisDeCoteExploite('1', 'exploited');
+        $exploitees = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'exploited');
         $idExploitees = [];
         foreach ($exploitees as $exploitee) {array_push($idExploitees, $exploitee->id);}
         $d['exploitees'] = $idExploitees;
@@ -113,9 +113,9 @@ class BackendController extends Controller
                 $d['nouveau'] = $this->DeterminerRessourceNouvelle($ressource->register_date);
 
                 //Détermination de l'état de la ressource en fonction de l'utilisateur
-                $d['favory'] = $this->DeterminerRessourceFavorisMisDeCoteExploite('1', $ressource->id, 'favory');
-                $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite('1', $ressource->id, 'aside');
-                $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite('1', $ressource->id, 'exploited');
+                $d['favory'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'favory');
+                $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'aside');
+                $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'exploited');
 
                 //Récupération des commentaires
                 $commentaires = $this->RecupererCommentairesRessource($ressource->id);
@@ -145,14 +145,14 @@ class BackendController extends Controller
 
     function Favoris()
     {
-        $d['favoris'] = $this->DeterminerFavorisMisDeCoteExploite('1', 'favory');
+        $d['favoris'] = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'favory');
         $this->set($d);
         $this->render("Favoris");
     }
 
     function MisDeCote()
     {
-        $d['misdecotes'] = $this->DeterminerFavorisMisDeCoteExploite('1', 'aside');
+        $d['misdecotes'] = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'aside');
         $this->set($d);
         $this->render("MisDeCote");
     }
@@ -208,10 +208,9 @@ class BackendController extends Controller
     function DeterminerRessourceFavorisMisDeCoteExploite($id_member, $id_ressources, $etat)
     {
         $this->modFavoris = $this->loadModel("Favoris");
-        $params = ['projection' => 'state_ressources.*', 'conditions' => 'id_ressources = ' .$id_ressources. 'and id_member = '.$id_member.' and state = "'.$etat.'"'];
+        $params = ['projection' => 'state_ressources.*', 'conditions' => 'id_ressources = ' .$id_ressources. ' and id_member = '.$id_member.' and state = "'.$etat.'"'];
         $etat = $this->modFavoris->find($params);
-        
-        return ($etat == null) ? true : false;
+        return (!empty($etat)) ? true : false;
     }
 
     function DeterminerCategoriesRessource($id_ressources)
@@ -304,4 +303,15 @@ class BackendController extends Controller
         
     }
 
+    function RetirerFavorisMisDeCoteExploitee()
+    {
+        $modFavoris = $this->loadModel("Favoris");
+        $modFavoris->delete(['conditions' => ["id_ressources" => $_POST['id_ressource'], "id_member" => $_POST['id_member'], "state" => $_POST['state']]]);
+    }
+
+    function AjouterFavorisMisDeCoteExploitee()
+    {
+        $modFavoris = $this->loadModel("Favoris");
+        $modFavoris->insert(['id_ressources', 'id_member', 'state'], [$_POST['id_ressource'], $_POST['id_member'], $_POST['state']]);
+    }
 }

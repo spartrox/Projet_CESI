@@ -2,9 +2,23 @@
     <form method="post">
         <!-- Ligne des états -->
         <div class="form-group row">
-            <div class="col-12">
-                <?php if($nouveau){ ?><span class='badge badge-secondary'>New</span><?php } ?>
-                <?php if($favory){ ?><i class="float-right fas fa-check fa-lg m-1" style="color:green" title="Exploitée"></i><?php } ?>
+            <div class="col-12 mt-1 mb-1">
+                <?php if($nouveau){ ?><span class='badge badge-secondary'>New</span><?php };
+                  if ($exploited) { ?>
+                    <span class="cliquable"><i id="Exploitee<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'exploited', 'Exploitee<?= $ressource->id ?>', 'retirer')" title="Retirer des ressources exploitées" class="float-right fas fa-check-circle fa-lg m-1" style="color:green"></i></span>
+                <?php } else { ?>
+                    <span class="cliquable"><i id="Exploitee<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'exploited', 'Exploitee<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux ressources exploitées" class="float-right far fa-check-circle fa-lg m-1 state" style="color:green"></i></span>
+                <?php } ?>
+                <?php if ($aside) { ?>
+                    <span class="cliquable"><i id="Misdecote<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'aside', 'Misdecote<?= $ressource->id ?>', 'retirer')" title="Retirer des mis de côté" class="float-right fas fa-bookmark fa-lg m-1" style="color:red"></i></span>
+                <?php } else { ?>
+                    <span class="cliquable"><i id="Misdecote<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'aside', 'Misdecote<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux mis de côté" class="float-right far fa-bookmark fa-lg m-1 state" style="color:red"></i></span>
+                <?php } ?>
+                <?php if ($favory) { ?>
+                    <span class="cliquable"><i id="favoris<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'favory', 'favoris<?= $ressource->id ?>', 'retirer')" title="Retirer des favoris" class="float-right fas fa-star fa-lg m-1" style="color:goldenrod"></i></span>
+                <?php } else { ?>
+                    <span class="cliquable"><i id="favoris<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'favory', 'favoris<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux favoris" class="float-right far fa-star fa-lg m-1 state" style="color:goldenrod"></i></span>
+                <?php } ?>
             </div>
             <!-- Titre de la ressource -->
             <div class="col-6">

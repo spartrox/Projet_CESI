@@ -31,13 +31,19 @@
                         </div>
                         <div class="card-body">
                             <?php if (in_array($ressource->id, $exploitees)) { ?>
-                                <i class="float-right fas fa-check fa-lg m-1" style="color:green" title="Exploitée"></i>
+                                <span class="cliquable"><i id="Exploitee<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'exploited', 'Exploitee<?= $ressource->id ?>', 'retirer')" title="Retirer des ressources exploitées" class="float-right fas fa-check-circle fa-lg m-1" style="color:green"></i></span>
+                            <?php } else { ?>
+                                <span class="cliquable"><i id="Exploitee<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'exploited', 'Exploitee<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux ressources exploitées" class="float-right far fa-check-circle fa-lg m-1 state" style="color:green"></i></span>
                             <?php } ?>
                             <?php if (in_array($ressource->id, $misdecotes)) { ?>
-                                <i class="float-right fas fa-bookmark fa-lg m-1" style="color:red" title="Mis de côté"></i>
-                            <?php }?>
+                                <span class="cliquable"><i id="Misdecote<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'aside', 'Misdecote<?= $ressource->id ?>', 'retirer')" title="Retirer des mis de côté" class="float-right fas fa-bookmark fa-lg m-1" style="color:red"></i></span>
+                            <?php } else { ?>
+                                <span class="cliquable"><i id="Misdecote<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'aside', 'Misdecote<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux mis de côté" class="float-right far fa-bookmark fa-lg m-1 state" style="color:red"></i></span>
+                            <?php } ?>
                             <?php if (in_array($ressource->id, $favoris)) { ?>
-                                <i class="float-right fas fa-star fa-lg m-1" style="color:goldenrod" title="Favori"></i>
+                                <span class="cliquable"><i id="favoris<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'favory', 'favoris<?= $ressource->id ?>', 'retirer')" title="Retirer des favoris" class="float-right fas fa-star fa-lg m-1" style="color:goldenrod"></i></span>
+                            <?php } else { ?>
+                                <span class="cliquable"><i id="favoris<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploitee(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'favory', 'favoris<?= $ressource->id ?>', 'ajouter')" title="Ajouter aux favoris" class="float-right far fa-star fa-lg m-1 state" style="color:goldenrod"></i></span>
                             <?php } ?>
                             <h5 class="card-title"><?= $ressource->title ?></h5>
                             <p class="card-text text-justify text-truncate"><em><?= $ressource->content ?></em></p>
