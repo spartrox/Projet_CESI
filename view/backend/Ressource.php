@@ -24,7 +24,16 @@
             <div class="col-6">
                 <input name="title" type="text" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="title" value="<?= $ressource->title?>" placeholder="Titre de la ressource">
             </div>
-            <div class="col-6">
+            <div class="col-3 form-group row">
+                <select name="state" <?php if ($action) {echo 'disabled';} ?> class="col-8 <?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="EtatSelect">
+                    <?php 
+                        foreach ($states as $state) { ?>
+                            <option <?= ($ressource->state == $state)? 'selected' : '' ?>><?= $state ?></option>
+                        <?php }
+                    ?>
+                </select>
+            </div>
+            <div class="col-3">
                 <p class="float-right"><small>Modifié le <?= $ressource->register_date ?> par <?= $ressource->creator ?></small></p>
             </div>
         </div>
