@@ -10,9 +10,8 @@
       <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Qui sommes-nous ?</h5>
-        <p> 3 étudiants du CESI La Rochelle en bachelor RIL (Responsable en Ingénierie des Logiciels)</p>
-        <p>Nous avons eu a coeur de faire naitre le projet afin de venir en aide aux étudiants dans la difficultés, ayant des questions ou tout simplement d'informations. </p>
+        <h5 class="font-weight-bold text-uppercase mb-4"><?= $l['whoweare'] ?></h5>
+        <p><?= $l['whowearedescribed'] ?></p>
 
       </div>
       
@@ -24,24 +23,24 @@
       <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
 
         <!-- Contact details -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Adresse</h5>
+        <h5 class="font-weight-bold text-uppercase mb-4"><?= $l['address'] ?></h5>
 
         <ul class="list-unstyled">
           <li>
             <p>
-              <i class="fas fa-home mr-3"></i>CESI La Rochelle</p>
+              <i class="fas fa-home mr-3"></i><?= $l['addressdescribed'] ?></p>
           </li>
           <li>
             <p>
-              <i class="fas fa-envelope mr-3"></i> adresse@viacesi.fr</p>
+              <i class="fas fa-envelope mr-3"></i> <?= $l['mail'] ?></p>
           </li>
           <li>
             <p>
-              <i class="fas fa-phone mr-3"></i>05 49 58 26 47</p>
+              <i class="fas fa-phone mr-3"></i><?= $l['landlinenumber'] ?></p>
           </li>
           <li>
             <p>
-              <i class="fas fa-print mr-3"></i> 06 58 49 76 58</p>
+              <i class="fas fa-print mr-3"></i><?= $l['mobilephonenumber'] ?></p>
           </li>
         </ul>
 
@@ -54,7 +53,7 @@
       <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
 
         <!-- Social buttons -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Nous suivre & nous contacter</h5>
+        <h5 class="font-weight-bold text-uppercase mb-4"><?= $l['followus&contactus'] ?></h5>
 
         <!-- Facebook -->
         <a type="button" class="btn-floating btn-fb">

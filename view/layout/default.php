@@ -34,40 +34,40 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="<?= BASE_URL . DS . "frontend/Accueil" ?>">ACCUEIL</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Accueil" ?>"><?= $l['home'] ?></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Catalogue</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>"><?= $l['catalogue'] ?></a>
 						</li>
 
 						<!-- Début du menu backend -->
 					<?php if (isset($_SESSION['id'])): ?> 
 	
 						<div class="btn-group">
-							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase">Tableau de bord</a>
+							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase"><?= $l['dashboard'] ?></a>
 							<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span class="sr-only">Toggle Dropdown</span>
 							</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>">Favoris</a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>">Mis de coté</a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>">Création/Édition</a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><?= $l['favory'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><?= $l['aside'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><?= $l['create_edit'] ?></a>
 							</div>
 						</div>
 
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>">Profil</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><?= $l['profile'] ?></a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>">Déconnexion</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
 						</li>
 
 						<!-- Début du menu backend admin -->
 					<?php elseif (isset($_SESSION['admin'])): ?>  
 
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>">Administrateur</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>"><?= $l['administrator'] ?></a>
 						</li>	
 
 						<!-- Fin du menu backend -->
@@ -75,22 +75,26 @@
 						
 					<?php if (!isset($_SESSION['id'])): ?> 					
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>">Inscription</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>"><?= $l['signup'] ?></a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>">Connexion</a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>"><?= $l['signin'] ?></a>
 						</li>	
 						
 					<?php endif; ?> 
 
 						<form class="form-inline">
-							<input class="form-control" type="text" placeholder="Recherche" aria-label="Recherche">
+							<input class="form-control" type="text" placeholder="<?= $l['search'] ?>" aria-label="<?= $l['search'] ?>">
 						</form>
 
 						
 				</ul>
-  			</div>	
+				<select class="custom-select col-1">
+					<option value="french" <?= (isset($_SESSION['lang']) == 'french')? 'selected': '' ?>><?= $l['french'] ?></option>
+					<option value="english" <?= (isset($_SESSION['lang']) == 'english')? 'selected': '' ?>><?= $l['english'] ?></option>
+				</select>
+  			</div>
 		</nav>	
 	</div>
 	

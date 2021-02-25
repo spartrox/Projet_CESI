@@ -62,6 +62,12 @@ class Controller
             return false;
         }
         $this->rendered = true;
+
+        //language
+        $lang = (isset($_SESSION['lang'])) ? $_SESSION['lang'] : 'french';
+        include(ROOT . DS . 'public' . DS . 'language' . DS . $lang . '.php');
+        $this->set($l);
+
         extract($this->vars);
         if (strpos($view, '/') === 0) {
             $fview = ROOT . DS . 'view' . $view . '.php';
