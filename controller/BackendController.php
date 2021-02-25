@@ -159,7 +159,9 @@ class BackendController extends Controller
 
     function Categories()
     {
-        $this->render("Categories");
+        $d['categories'] = $this->RecupererToutesCategories();
+        $this->set($d);
+        $this->render("\Admin\Categories");
     }
 
     function Profil()
@@ -270,7 +272,7 @@ class BackendController extends Controller
     {
         //Récupération des commentaires liés à la ressource
         $this->modCommentaires = $this->loadModel("Commentaires");
-        $params = ['projections' => 'commentary_ressources.*', "conditions" => "id_ressources = $idRessource"];
+        $params = ['projections' => 'commentary_ressources.*', "conditions" => "id_ressources = $idRessource", "orderby" => "date_message DESC"];
         return $this->modCommentaires->find($params);
     }
 
@@ -303,15 +305,48 @@ class BackendController extends Controller
         
     }
 
+    //////////////////////////////////////////
+    //Fonctions appelées par le système Ajax//
+    //////////////////////////////////////////
+    /////Ne pas utiliser directement ici//////
+    //////////////////////////////////////////
+
     function RetirerFavorisMisDeCoteExploitee()
     {
+        //Suppression d'un état Favoris/Mis de côté/Exploitée
         $modFavoris = $this->loadModel("Favoris");
         $modFavoris->delete(['conditions' => ["id_ressources" => $_POST['id_ressource'], "id_member" => $_POST['id_member'], "state" => $_POST['state']]]);
     }
 
     function AjouterFavorisMisDeCoteExploitee()
     {
+        //Ajout d'un état Favoris/Mis de côté/Exploitée
         $modFavoris = $this->loadModel("Favoris");
         $modFavoris->insert(['id_ressources', 'id_member', 'state'], [$_POST['id_ressource'], $_POST['id_member'], $_POST['state']]);
     }
+
+    function AjouterCommentaire()
+    {
+        $modCommentaires = $this->loadModel("Commentaires");
+        $modCommentaires->insertAI(['id_ressources', 'text', 'id_member'], [$_POST['id_ressource'],$_POST['text'],$_POST['id_member']]);
+    }
+
+    function RestraindreCommentaire()
+    {
+        $modCommentaires = $this->loadModel("Commentaires");
+        $modCommentaires->update(["donnees" => ["restraint " => 1],"conditions" => ["id_commentary" => $_POST['id_commentary'], "id_ressources" => $_POST['id_ressource']]]);
+    }
+
+    function ReintegrerCommentaire()
+    {
+        $modCommentaires = $this->loadModel("Commentaires");
+        $modCommentaires->update(["donnees" => ["restraint " => 0],"conditions" => ["id_commentary" => $_POST['id_commentary'], "id_ressources" => $_POST['id_ressource']]]);
+    }
+
+    function ModifierCategorie()
+    {
+        $modCategories = $this->loadModel("Categories");
+        $modCategories->update(["donnees" => ["title" => $_POST['title'], "descritption" => $_POST['description']],"conditions" => ["id" => $_POST['id']]]);
+    }
+
 }

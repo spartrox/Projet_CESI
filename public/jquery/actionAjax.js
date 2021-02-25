@@ -126,6 +126,97 @@ function FavorisMisDeCoteExploiteeRessource(id_ressource, id_member, state, idht
     }
 }
 
+//Appelé depuis une ressource
+function AjoutCommentaire(first_name, last_name, id_member, id_ressource)
+{
+    commentaire = document.getElementById('textCommentaire');
+    if (commentaire.value != '')
+    {
+        var d = new Date();
+        document.getElementById("tabCommentaires").innerHTML 
+        = "<tr><td class='col-5'><em>" + first_name + ' ' + last_name 
+        + ' le ' + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() 
+        + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() 
+        + "</em></td><td>" + commentaire.value + "</td></tr>"
+        + document.getElementById("tabCommentaires").innerHTML;
+    
+        //Préparation de la requète
+        xmlhttp = prepareXMLHTTP();
+        xmlhttp.open("POST", "../AjouterCommentaire", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id_ressource="+id_ressource+"&id_member="+id_member+"&text="+commentaire.value);
+        //
+        commentaire.value = "";
+    }
+}
+
+//Appelé depuis une ressource
+function RestraindreCommentaire(id_ressource, id_commentaire, idhtlm, btn)
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "../RestraindreCommentaire", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("id_ressource="+id_ressource+"&id_commentary="+id_commentaire);
+    //
+    document.getElementById(btn).innerHTML = "<span class='fa-stack' style='vertical-align: top;'><i class='far fa-comment fa-stack-2x'></i><i class='fas fa-check fa-stack-1x'></i></span>";
+    document.getElementById(btn).setAttribute("class", "btn btn-success");
+    document.getElementById(btn).setAttribute("onclick", "ReintegrerCommentaire("+id_ressource+", "+id_commentaire+", '"+idhtlm+"', 'btn"+idhtlm+"')");
+    document.getElementById(btn).setAttribute("title", "Valider le commentaire");
+}
+
+//Appelé depuis une ressource
+function ReintegrerCommentaire(id_ressource, id_commentaire, idhtlm, btn)
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "../ReintegrerCommentaire", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("id_ressource="+id_ressource+"&id_commentary="+id_commentaire);
+    //
+    document.getElementById(btn).innerHTML = "<i class='fas fa-flag fa-2x'></i>";
+    document.getElementById(btn).setAttribute("class", "btn btn-warning");
+    document.getElementById(btn).setAttribute("onclick", "RestraindreCommentaire("+id_ressource+", "+id_commentaire+" , '"+idhtlm+"', 'btn"+idhtlm+"')");
+    document.getElementById(btn).setAttribute("title", "Restraindre le commentaire");
+}
+
+function ActiverModificationCategories(id_category, idHtlmTitre, idHtlmDescription, idBtn)
+{
+    //Activation du titre
+    document.getElementById(idHtlmTitre).removeAttribute('readonly');
+    document.getElementById(idHtlmTitre).setAttribute("class", "form-control");
+    //Activation de la description
+    document.getElementById(idHtlmDescription).removeAttribute('readonly');
+    document.getElementById(idHtlmDescription).setAttribute("class", "form-control");
+    //Changement du bouton
+    document.getElementById(idBtn).innerHTML = "<i class='fas fa-check'></i>";
+    document.getElementById(idBtn).setAttribute("class", "btn btn-outline-success btn-sm");
+    document.getElementById(idBtn).setAttribute("onclick", "ModifierCategories("+id_category+",'"+idHtlmTitre+"','"+ idHtlmDescription+"','"+ idBtn +"')");
+    document.getElementById(idBtn).setAttribute("title", "Valider");
+}
+
+function ModifierCategories(id_category, idHtlmTitre, idHtlmDescription, idBtn)
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "ModifierCategorie", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    titre = document.getElementById(idHtlmTitre).value;
+    description = document.getElementById(idHtlmDescription).value;
+    xmlhttp.send("id="+id_category+"&title="+titre+"&description="+description);
+    //Activation du titre
+    document.getElementById(idHtlmTitre).setAttribute('readonly', '');
+    document.getElementById(idHtlmTitre).setAttribute("class", "form-control-plaintext");
+    //Activation de la description
+    document.getElementById(idHtlmDescription).setAttribute('readonly', '');
+    document.getElementById(idHtlmDescription).setAttribute("class", "form-control-plaintext");
+    //Changement du bouton
+    document.getElementById(idBtn).innerHTML = "<i class='fas fa-pencil-alt'></i>";
+    document.getElementById(idBtn).setAttribute("class", "btn btn-outline-primary btn-sm");
+    document.getElementById(idBtn).setAttribute("onclick", "ActiverModificationCategories("+id_category+",'"+idHtlmTitre+"','"+ idHtlmDescription+"','"+ idBtn +"')");
+    document.getElementById(idBtn).setAttribute("title", "Modifier");
+}
+
 function prepareXMLHTTP()
 {
     if (window.XMLHttpRequest) {
