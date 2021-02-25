@@ -7,7 +7,12 @@ class BackendController extends Controller
     private $modCategoriesRessources = null;
     private $modCommentaires = null;
     private $modMember = null;
+
+    private $enumStateRessource = ['private', 'shared', 'public', 'to_validate', 'validate', 'suspended'];
     
+    ////////////////////////////////
+    ////*Fonctions d'affichage*/////
+    ////////////////////////////////
 
     function Tableaudebord()
     {
@@ -28,24 +33,39 @@ class BackendController extends Controller
     {
         //Récupération des ressources
         $this->modRessources = $this->loadModel("Ressources");
-        $params = ['projections' => 'ressources.*'];
+        if(!empty($_SESSION))
+        {
+            $params = ['projections' => 'ressources.*', 'conditions' => 'state in("shared", "public")'];
+        } else 
+        {
+            $params = ['projections' => 'ressources.*', 'conditions' => 'state in("shared", "public")'];
+        }
         $ressources =  $this->modRessources->find($params);
         $d['ressources'] = $ressources;
-        //Récupération des id des favoris
-        $favoris = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'favory');
-        $idFavoris = [];
-        foreach ($favoris as $favori) {array_push($idFavoris, $favori->id);}
-        $d['favoris'] = $idFavoris;
-        //Récupération des id des mis de côté
-        $misdecotes = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'aside');
-        $idMisDeCotes = [];
-        foreach ($misdecotes as $misdecote) {array_push($idMisDeCotes, $misdecote->id);}
-        $d['misdecotes'] = $idMisDeCotes;
-        //Récupération des id des ressources exploitées
-        $exploitees = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'exploited');
-        $idExploitees = [];
-        foreach ($exploitees as $exploitee) {array_push($idExploitees, $exploitee->id);}
-        $d['exploitees'] = $idExploitees;
+        if(isset($_SESSION['id']))
+        {
+            //Récupération des id des favoris
+            $favoris = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'favory');
+            $idFavoris = [];
+            foreach ($favoris as $favori) {array_push($idFavoris, $favori->id);}
+            $d['favoris'] = $idFavoris;
+            //Récupération des id des mis de côté
+            $misdecotes = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'aside');
+            $idMisDeCotes = [];
+            foreach ($misdecotes as $misdecote) {array_push($idMisDeCotes, $misdecote->id);}
+            $d['misdecotes'] = $idMisDeCotes;
+            //Récupération des id des ressources exploitées
+            $exploitees = $this->DeterminerFavorisMisDeCoteExploite($_SESSION['id'], 'exploited');
+            $idExploitees = [];
+            foreach ($exploitees as $exploitee) {array_push($idExploitees, $exploitee->id);}
+            $d['exploitees'] = $idExploitees;
+        } else 
+        {
+            $d['favoris'] = null;
+            $d['misdecotes'] = null;
+            $d['exploitees'] = null;
+        }
+        
         //Récupération des catégories des ressources
         $categoriesDesRessources = [];
         foreach ($ressources as $ressource) { $categoriesDesRessources[$ressource->id] = $this->DeterminerCategoriesRessource($ressource->id); }
@@ -69,10 +89,9 @@ class BackendController extends Controller
             //Détermination si le formulaire de modification est envoyé
             if (!empty($_POST))
             {
-                //var_dump($_POST);
                 //Update de la ressource
                 $image = ($_POST['image'] == '') ? $_POST['imageold'] : $_POST['image'] ;
-                $params = ['donnees' => ['title' => $_POST['title'], 'content' => $_POST['content'], 'image' => $image], 'conditions' => ['id' => $idRessource]];
+                $params = ['donnees' => ['title' => $_POST['title'], 'content' => $_POST['content'], 'image' => $image, 'state' => $_POST['state']], 'conditions' => ['id' => $idRessource]];
                 $this->modRessources->update($params);
 
                 $this->ModifierCategoriesRessource($idRessource, $_POST['categories']);
@@ -126,6 +145,9 @@ class BackendController extends Controller
                 foreach ($commentaires as $commentaire) { $membresCommentaires[$commentaire->id_commentary] = $this->RecupererMembre($commentaire->id_member); }
                 $d['membres'] = $membresCommentaires;
 
+                //Ajout des états de la ressource
+                $d['states'] = $this->enumStateRessource;
+
                 //Chargement de l'affichage
                 $this->set($d);
                 $this->render("Ressource");
@@ -176,6 +198,10 @@ class BackendController extends Controller
         // Redirect permet de rediriger une page 
         $this->redirect("/frontend/Accueil");
     }
+
+    ////////////////////////////////////////////
+    //////////*Fonctions utilitaires*///////////
+    ////////////////////////////////////////////
 
     function DeterminerFavorisMisDeCoteExploite($id_member, $etat)
     {
@@ -301,9 +327,9 @@ class BackendController extends Controller
     }
 
     //////////////////////////////////////////
-    //Fonctions appelées par le système Ajax//
+    /*Fonctions appelées par le système Ajax*/
     //////////////////////////////////////////
-    /////Ne pas utiliser directement ici//////
+    ////*Ne pas utiliser directement ici*/////
     //////////////////////////////////////////
 
     function RetirerFavorisMisDeCoteExploitee()
