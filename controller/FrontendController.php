@@ -136,8 +136,9 @@ class FrontendController extends Controller
             $_SESSION['pseudo'] = $membre->pseudo;
             $_SESSION['type_account'] = $membre->type_account;
 
+
             } else{            
-                // Si y il a un problème sa passe à true
+                // Si il y a un problème sa passe à true
                 $d["erreur"] = true;
                 $d["msgErreur"] = "Identifiants incorrect";
             }

@@ -41,38 +41,63 @@
 						</li>
 
 						<!-- Début du menu backend -->
-					<?php if (isset($_SESSION['id'])): ?> 
+					<?php if (isset($_SESSION['id'])):?> 
 	
-						<div class="btn-group">
-							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase"><?= $l['dashboard'] ?></a>
-							<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="sr-only">Toggle Dropdown</span>
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><?= $l['favory'] ?></a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><?= $l['aside'] ?></a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><?= $l['create_edit'] ?></a>
+							<div class="btn-group">
+								<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase"><?= $l['dashboard'] ?></a>
+								<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="sr-only">Toggle Dropdown</span>
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><?= $l['favory'] ?></a>
+									<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><?= $l['aside'] ?></a>
+									<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><?= $l['create_edit'] ?></a>
+								</div>
 							</div>
-						</div>
 
-						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><?= $l['profile'] ?></a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><?= $l['profile'] ?></a>
+							</li>
 
-						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
+							</li>
 
-						<!-- Début du menu backend admin -->
-					<?php elseif (isset($_SESSION['admin'])): ?>  
+							<!-- Début du menu backend moderateur / administrateur / super_administrateur -->
+							
+						<?php if (in_array($_SESSION['type_account'], ['moderateur','admin', 'super_admin'])): ?>  
+							
+							<li class="nav-item">
+								<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>"><?= $l['administrator'] ?></a>
+							</li>
 
-						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>"><?= $l['administrator'] ?></a>
-						</li>	
-
-						<!-- Fin du menu backend -->
+							<div class="btn-group">
+									<a type="button" class="nav-link text-uppercase">Gestions</a>
+									<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="sr-only">Toggle Dropdown</span>
+									</a>
+								<div class="dropdown-menu">
+									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/ValidationsRessources" ?>">Validations des ressources
+									</a>
+						<?php endif; ?> 		
+						<?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])): ?>
+								
+									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/GestionsRessources" ?>">Gestions des ressources
+									</a>
+						<?php endif; ?> 
+						<?php if (in_array($_SESSION['type_account'], ['super_admin'])): ?>
+						
+									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/GestionsComptes" ?>">Gestions des comptes
+									</a>	
+						<?php endif; ?> 
+																
+							<!-- Fin du menu backend -->
 					<?php endif; ?> 
 						
+							</div>
+						</div>	
+
+			
 					<?php if (!isset($_SESSION['id'])): ?> 					
 						<li class="nav-item">
 							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>"><?= $l['signup'] ?></a>
