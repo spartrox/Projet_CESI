@@ -121,21 +121,31 @@ class FrontendController extends Controller
         // Lance la requête
         $membre = $modmembre->findFirst($params); 
 
-        $_SESSION['id'] = $membre->id;
-        $_SESSION['admin'] = $membre->admin;
+
 
         // Par défaut c'est a false
         $d["erreur"] = false;
 
-        //différent de null
-        if($membre == null || !password_verify($password, $membre['password'])){
+        // Si on n'a récupéré quelque chose on passe à l'étape suivante
+        if($membre != null){
 
+            // On vérifie que le pseudo et le MDP sont correcte
+           if($pseudo == $membre ->pseudo && password_verify($password, $membre->password)){
+
+            $_SESSION['id'] = $membre->id;
+            $_SESSION['pseudo'] = $membre->pseudo;
+            $_SESSION['type_account'] = $membre->type_account;
+
+            } else{            
+                // Si y il a un problème sa passe à true
+                $d["erreur"] = true;
+                $d["msgErreur"] = "Identifiants incorrect";
+            }
+        } else {
             // Si y il a un problème sa passe à true
             $d["erreur"] = true;
-            $d["msgErreur"] = "Identifiants incorrect";
-        } 
-
-        return $d;
+            $d["msgErreur"] = "Identifiants incorrect"; 
+        }
+        return $d;    
     }
-
 }
