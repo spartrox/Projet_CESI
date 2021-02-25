@@ -66,13 +66,9 @@
 							<!-- Début du menu backend moderateur / administrateur / super_administrateur -->
 							
 						<?php if (in_array($_SESSION['type_account'], ['moderateur','admin', 'super_admin'])): ?>  
-							
-							<li class="nav-item">
-								<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Admin" ?>"><?= $l['administrator'] ?></a>
-							</li>
 
 							<div class="btn-group">
-									<a type="button" class="nav-link text-uppercase">Gestions</a>
+									<a type="button" class="nav-link text-uppercase"><?=$l['administrator'] ?></a>
 									<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<span class="sr-only">Toggle Dropdown</span>
 									</a>
@@ -81,7 +77,9 @@
 									</a>
 						<?php endif; ?> 		
 						<?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])): ?>
-								
+									
+									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Categories" ?>">Gestions des catégories
+									</a>								
 									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/GestionsRessources" ?>">Gestions des ressources
 									</a>
 						<?php endif; ?> 
@@ -92,10 +90,11 @@
 						<?php endif; ?> 
 																
 							<!-- Fin du menu backend -->
+							</div>
+						</div>								
 					<?php endif; ?> 
 						
-							</div>
-						</div>	
+
 
 			
 					<?php if (!isset($_SESSION['id'])): ?> 					
