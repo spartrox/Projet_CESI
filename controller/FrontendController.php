@@ -122,7 +122,7 @@ class FrontendController extends Controller
         $membre = $modmembre->findFirst($params); 
 
         $_SESSION['id'] = $membre->id;
-        //$_SESSION['admin'] = $membre->admin;
+        $_SESSION['admin'] = $membre->admin;
 
         // Par défaut c'est a false
         $d["erreur"] = false;
