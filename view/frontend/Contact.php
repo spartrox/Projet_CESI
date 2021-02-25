@@ -1,6 +1,6 @@
 <?php
 /* Page: contact.php */
-$VotreAdresseMail="votreemail@votresite.tld";//mettez ici votre adresse mail
+$VotreAdresseMail="toto79230@hotmail.fr";//mettez ici votre adresse mail
 if(isset($_POST['envoyer'])) { // si le bouton "Envoyer" est appuyé
     //on vérifie que le champ mail est correctement rempli
     if(empty($_POST['mail'])) {
