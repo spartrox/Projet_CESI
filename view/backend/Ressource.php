@@ -22,7 +22,7 @@
             </div>
             <!-- Titre de la ressource -->
             <div class="col-6">
-                <input name="title" type="text" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="title" value="<?= $ressource->title?>">
+                <input name="title" type="text" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="title" value="<?= $ressource->title?>" placeholder="Titre de la ressource">
             </div>
             <div class="col-6">
                 <p class="float-right"><small>Modifié le <?= $ressource->register_date ?> par <?= $ressource->creator ?></small></p>
@@ -48,24 +48,24 @@
             <!-- Description de la ressource -->
             <div class="col-12">
                 <label for="content"><u>Description :</u></label>
-                <textarea name="content" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> text-justify" id="content" rows="3"><?= $ressource->content ?></textarea>
+                <textarea name="content" <?php if ($action) {echo 'readonly';} ?> class="<?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> text-justify" id="content" rows="3" placeholder="Description de la ressource"><?= $ressource->content ?></textarea>
             </div>
         </div>
         <div class="form-group row">
             <!-- Catégorie(s) de la ressource -->
             <div class="col-3">    
                 <label for="categories"><u>Catégories :</u> </label>
-                <br>
                 <?php
                 //Si action est vrai, on fait un affichage en forme de badges
                 if ($action) {
                     foreach ($categoriesRessource as $categorie) {
+                        echo '<br>';
                         echo "<span class='badge badge-secondary'>$categorie->title</span> ";                              
                     }
                 }
                 //Si action est faux, on fait un affichage en checkbox
                 if (!$action) { ?>
-                <div name="categories" class="form-group form-check" id="categories">
+                <div name="categories" class="form-group form-check overflow-auto h-25 border" id="categories">
                 <?php 
                     foreach($categories as $categorie)
                     {
@@ -86,30 +86,6 @@
         <a class="btn btn-primary" href="<?= BASE_URL . DS . "backend/Catalogue" ?>">Retour au Catalogue</a>
     </div>
     <br>
-    <!-- Zone des commentaires affichée lors de la visualisation de la ressource -->
-    <?php if ($action) { ?>
-        <div class="row">
-            <h4>Commentaires</h4>
-        </div>
-        <br>
-        <div class="row">
-            <textarea class="form-control w-75" placeholder="Laissez un commentaire"></textarea>
-        </div>
-        <br>
-        <div class="row">
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </div>
-        <br>
-        <div class="row listecommentaires overflow-auto">
-            <table class="table table-responsive-lg w-75">
-            <?php 
-                foreach ($commentaires as $commentaire) {
-                    $membre = $membres[$commentaire->id_commentary];
-                    echo "<tr><td class='col-5'><em>" .$membre->first_name . ' ' . $membre->last_name . ' le ' . $commentaire->date_message ."</em></td><td>$commentaire->text</td></tr>";
-                }
-                if (empty($commentaires)) { echo '<tr><td>Soyez la première ou le premier à commenter !</td></tr>'; }
-            ?>
-            </table>
-        </div>
-    <?php } ?>
+    <!-- Zone des commentaires -->
+    <?php include_once("Commentaire.php") ?>
 </div>
