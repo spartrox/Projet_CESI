@@ -41,6 +41,23 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
 				ci-dessous en renseignant les champs demandés.</p>
 			</div>
 			<div class="form-input">
+            <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nom entier :</label><br>
+                        <input type="text" class="form-group" name="Sujet" placeholder="Nom entier...."><br>
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Email :</label><br>
+                        <input type="text" class="form-group" name="Sujet" placeholder="Email...."><br>
+                    </div>
+                    <div class="form-group form-check">
+                    <label for="exampleInputEmail1">Message :</label><br>
+                    <textarea rows="4" class="form-group" name="Message" placeholder="Message.."></textarea><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+
+            <!--
 				<form action="Contact" method="post">
 					Nom entier :<br>
 					<input type="text" name="Sujet" placeholder="Nom entier...."><br>
@@ -52,9 +69,29 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
 					<textarea rows="4" name="Message" placeholder="Message.."></textarea><br>
 					<br>
 					<button class="button">Envoyer</button>
-				</form> 
+				</form>
+                -->
 			</div>
 		</div>
 	</body>
 </div>
 </html>
+
+<!--
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+-->

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<title>Mon profil</title>
-		<link rel="stylesheet" type="text/css" href="custom.css">
-		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
-	</head>
-	<body>
+	<div class="container espaceEnHaut">
 			<div class="hedding-title">
 				<h1>Mon profil</h1><br>
 			</div>
@@ -28,6 +21,5 @@
 					Code postale :
 					<input type="text"></br>
 					<br>
-					<button class="button">Enregistrer</button>
-	</body>
-</html>
+					<button type="submit" class="btn btn-primary">Enregistrer</button>
+	</div>
