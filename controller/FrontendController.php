@@ -79,7 +79,7 @@ class FrontendController extends Controller
         $VotreAdresseMail="toto79230@hotmail.fr";//mettez ici votre adresse mail
         if(isset($_POST['envoyer'])) { // si le bouton "Envoyer" est appuyé
             //on vérifie que le champ mail est correctement rempli
-            if(empty($_POST['mail'])) {
+            if(empty($_POST['email'])) {
                 echo "Le champ mail est vide";
             } else {
                 //on vérifie que l'adresse est correcte
@@ -101,7 +101,7 @@ class FrontendController extends Controller
                             $Entetes .= "From: Nom de votre site <".$_POST['mail'].">\r\n";//de préférence une adresse avec le même domaine de là où, vous utilisez ce code, cela permet un envoie quasi certain jusqu'au destinataire
                             $Entetes .= "Reply-To: Nom de votre site <".$_POST['mail'].">\r\n";
                             //on prépare les champs:
-                            $Mail=$_POST['mail']; 
+                            $Mail=$_POST['email']; 
                             $Sujet='=?UTF-8?B?'.base64_encode($_POST['sujet']).'?=';//Cet encodage (base64_encode) est fait pour permettre aux informations binaires d'être manipulées par les systèmes qui ne gèrent pas correctement les 8 bits (=?UTF-8?B? est une norme afin de transmettre correctement les caractères de la chaine)
                             $Message=htmlentities($_POST['message'],ENT_QUOTES,"UTF-8");//htmlentities() converti tous les accents en entités HTML, ENT_QUOTES Convertit en + les guillemets doubles et les guillemets simples, en entités HTML
                             //en fin, on envoi le mail
