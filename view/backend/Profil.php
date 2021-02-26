@@ -9,9 +9,9 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>John Doe</h4>
-                      <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <h4>Kenneth  Valdez</h4>
+                      <p class="text-secondary mb-1">développeur informatique</p>
+                      <p class="text-muted font-size-sm">dans la région de La Rochelle</p>
 					  <!--
                       <button class="btn btn-primary">Follow</button>
                       <button class="btn btn-outline-primary">Message</button>
@@ -50,6 +50,7 @@
             <div class="col-md-8">
               <div class="card mb-3">
                 <div class="card-body">
+					<!--
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Nom entier :</h6>
@@ -58,13 +59,13 @@
                       Kenneth Valdez
                     </div>
                   </div>
-                  <hr>
+--> 
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Email :</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      kenneth.valdez@gmail.com
+                      kenneth.valdez@gmail.com <button type="submit" class="btn btn-primary">Modifier</button>
                     </div>
                   </div>
                   <hr>
@@ -73,7 +74,7 @@
                       <h6 class="mb-0">Téléphone :</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                      07 67 86 37 65 <button type="submit" class="btn btn-primary">Modifier</button>
                     </div>
                   </div>
                   <hr>
@@ -82,7 +83,7 @@
                       <h6 class="mb-0">Adresse :</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-						8 Rue Isabelle Autissier, 17140 Lagord
+						8 Rue Isabelle Autissier, 17140 Lagord  <button type="submit" class="btn btn-primary">Modifier</button>
                     </div>
                   </div>
 				  <!--

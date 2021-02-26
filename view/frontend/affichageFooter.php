@@ -58,12 +58,23 @@
 
         <!-- Facebook -->
         <a type="button" class="btn-floating btn-fb" 
-        href="lien.html" target="_blank">
+        href="https://www.facebook.com" target="_blank">
           <i class="fab fa-facebook-f"></i>
         </a>
         <!-- Twitter -->
-        <a type="button" class="btn-floating btn-tw" href="twitter.com">
+        <a type="button" class="btn-floating btn-tw" 
+        href="https://twitter.com" target="_blank">
           <i class="fab fa-twitter"></i>
+        </a>
+        <!--linkedin -->
+        <a type="button" class="btn-floating btn-tw" 
+        href="https://fr.linkedin.com" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <!--PornHub -->
+        <a type="button" class="btn-floating btn-tw" 
+        href="https://fr.pornhub.com" target="_blank">
+          <i class="fab fa-youtube"></i>
         </a>
         <!-- Bouton forlumaire de contact +-->
         <a type="button" class="btn-floatting btn-fb" href="<?= BASE_URL . DS . "frontend" . DS . "Contact" ?>">
