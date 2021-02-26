@@ -9,8 +9,8 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>Kenneth  Valdez</h4>
-                      <p class="text-secondary mb-1">développeur informatique</p>
+                      <h4>Kenneth Valdez</h4>
+                      <p class="text-secondary mb-1">Développeur informatique</p>
                       <p class="text-muted font-size-sm">dans la région de La Rochelle</p>
 					  <!--
                       <button class="btn btn-primary">Follow</button>

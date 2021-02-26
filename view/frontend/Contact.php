@@ -109,7 +109,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
 
                     <!--Form with header-->
 
-                    <form action="mail.php" method="post">
+                    <form action="Contact" method="post">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
                                 <div class="bg-info text-white text-center py-2">
