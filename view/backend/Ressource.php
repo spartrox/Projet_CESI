@@ -98,5 +98,8 @@
     </div>
     <br>
     <!-- Zone des commentaires -->
-    <?php include_once("Commentaire.php") ?>
+    <?php 
+    if(isset($_SESSION['id'])) {
+        include_once("Commentaire.php");
+     } ?>
 </div>
