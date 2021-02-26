@@ -5,15 +5,14 @@
         <table class="table table-striped table-bordered">
         <thead>
             <th scope="col">Titre</th>
-            <th scope="col" >Description</th>
-            <th scope="col" >Fonctionnalités</th>
+            <th scope="col">Description</th>
+            <th scope="col">Fonctionnalités</th>
         </thead>
         <?php 
         foreach ($ressources as $ressource) { ?>
             <tr>
                 <th><input id="title<?= $ressource->id?>" class='form-control-plaintext' value='<?= $ressource->title?>' readonly></th>
-                <th><textarea  id="content<?= $ressource->id?>" class='form-control-plaintext' readonly><?= $ressource->content ?></textarea></th>   
-                
+                <th><textarea  id="content<?= $ressource->id?>" class='form-control-plaintext' readonly><?= $ressource->content ?></textarea></th>               
                 <th>   
                     <a href=<?= "Ressource/?idRessource=$ressource->id&action=voir" ?> class="btn btn-outline-success btn-sm col-auto" title="Voir"><i class="fas fa-eye"></i></a>
                     <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col-auto" title="Modifier"><i class="fas fa-pencil-alt"></i></a>    

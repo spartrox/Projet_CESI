@@ -207,6 +207,8 @@ class BackendController extends Controller
 
     function Comptes()
     {
+        $d['members'] = $this->RecupererToutLesComptes();
+        $this->set($d);
         $this->render("\Admin\Comptes");
     }
 
@@ -305,6 +307,14 @@ class BackendController extends Controller
         //Récupération de toutes les ressources existantes
         $this->modRessources = $this->loadModel("Ressources");
         $params = ['projections' => 'ressources.*']; 
+        return $this->modRessources->find($params);
+    }
+
+    function RecupererToutLesComptes()
+    {
+        //Récupération de toutes les ressources existantes
+        $this->modRessources = $this->loadModel("membre");
+        $params = ['projections' => 'member.*']; 
         return $this->modRessources->find($params);
     }
 
