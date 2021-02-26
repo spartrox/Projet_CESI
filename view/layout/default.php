@@ -71,6 +71,8 @@
 										<span class="sr-only">Toggle Dropdown</span>
 									</a>
 								<div class="dropdown-menu">
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Messages" ?>">Gestions des messages
+										</a>
 										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Ressources" ?>">Gestions des ressources
 										</a>
 		
@@ -91,7 +93,7 @@
 								</div>
 								</div>
 						<?php endif; ?>
-						
+
 					<!-- Fin du menu Backend -->		
 					<?php endif; ?> 
 				

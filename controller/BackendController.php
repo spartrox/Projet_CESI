@@ -200,6 +200,11 @@ class BackendController extends Controller
         $this->render("\Admin\Ressources");
     }
 
+    function Messages()
+    {
+        $this->render("\Admin\Messages");
+    }
+
     function Comptes()
     {
         $this->render("\Admin\Comptes");
@@ -293,6 +298,14 @@ class BackendController extends Controller
         $this->modCategories = $this->loadModel("Categories");
         $params = ['projections' => 'category.*']; 
         return $this->modCategories->find($params);
+    }
+
+    function RecupererToutesRessources()
+    {
+        //Récupération de toutes les ressources existantes
+        $this->modRessources = $this->loadModel("Ressources");
+        $params = ['projections' => 'ressources.*']; 
+        return $this->modRessources->find($params);
     }
 
     function DeterminerRessourceNouvelle($dateRessource)
