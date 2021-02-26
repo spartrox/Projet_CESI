@@ -14,14 +14,19 @@
 			</div>
 					Nom utilisateur :
 					<input type="text">
-                   <p>&emsp</p>
                     Prénom :
-					<input type="text"></br>					
-					Email:<br>
+					<input type="text">	
+					Nom :
 					<input type="text"></br>
-					<br>
-					Message:<br>
-					<textarea rows="4"></textarea><br>
+					<br>				
+					Email :
+					<input type="text">
+					Ville :
+					<input type="text">
+					Adresse :
+					<input type="text">
+					Code postale :
+					<input type="text"></br>
 					<br>
 					<button class="button">Enregistrer</button>
 	</body>
