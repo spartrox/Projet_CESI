@@ -38,10 +38,11 @@
             <p>
               <i class="fas fa-phone mr-3"></i><?= $l['landlinenumber'] ?></p>
           </li>
+          <!--
           <li>
             <p>
               <i class="fas fa-print mr-3"></i><?= $l['mobilephonenumber'] ?></p>
-          </li>
+          </li> -->
         </ul>
 
       </div>
