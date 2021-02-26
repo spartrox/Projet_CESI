@@ -73,20 +73,20 @@
 										<span class="sr-only">Toggle Dropdown</span>
 									</a>
 								<div class="dropdown-menu">
-									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/ValidationsRessources" ?>">Validations des ressources
+								<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Ressources" ?>">Gestions des ressources
 									</a>
 						<?php endif; ?> 		
 						<?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])): ?>
 									
 									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Categories" ?>">Gestions des catégories
 									</a>								
-									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/GestionsRessources" ?>">Gestions des ressources
-									</a>
+
 						<?php endif; ?> 
 						<?php if (in_array($_SESSION['type_account'], ['super_admin'])): ?>
 						
-									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/GestionsComptes" ?>">Gestions des comptes
-									</a>	
+									<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Comptes" ?>">Gestions des comptes
+									</a>
+
 						<?php endif; ?> 
 																
 							<!-- Fin du menu backend -->

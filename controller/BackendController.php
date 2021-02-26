@@ -186,6 +186,18 @@ class BackendController extends Controller
         $this->render("\Admin\Categories");
     }
 
+    function Ressources()
+    {
+        $d['categories'] = $this->RecupererToutesCategories();
+        $this->set($d);
+        $this->render("\Admin\Ressources");
+    }
+
+    function Comptes()
+    {
+        $this->render("\Admin\Comptes");
+    }
+
     function Profil()
     {
         $this->render("Profil");

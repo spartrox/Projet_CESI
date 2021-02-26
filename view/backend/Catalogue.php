@@ -4,7 +4,15 @@
     </div>
     <div class="row pb-2">
         <div class="alert alert-light" role="alert">
-            Filtre :
+        <?php if (isset($_SESSION['id'])):?> 
+        <select name="state" <?php if ($action) {echo 'disabled';} ?> class="col-8 <?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="EtatSelect">
+                    <?php 
+                        foreach ($states as $state) { ?>
+                            <option <?= ($ressource->state == $state)? 'selected' : '' ?>><?= $state ?></option>
+                        <?php }
+                    ?>
+        </select>
+        <?php endif; ?> 
         </div>
     </div>
     <div class="row">
@@ -55,10 +63,15 @@
                         </div>
                         <div class="card-footer bg-light container">
                             <div class="row">
-                                <a href=<?= "Ressource/?idRessource=$ressource->id&action=voir" ?> class="btn btn-outline-success btn-sm col" title="Voir"><i class="fas fa-eye"></i></a>
-                                <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col" title="Modifier"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-outline-warning btn-sm col" title="Suspendre"><i class="fas fa-eye-slash"></i></a>
-                                <a href="#" class="btn btn-outline-danger btn-sm col" title="Supprimer"><i class="fas fa-trash"></i></a>
+                                    <a href=<?= "Ressource/?idRessource=$ressource->id&action=voir" ?> class="btn btn-outline-success btn-sm col" title="Voir"><i class="fas fa-eye"></i></a>
+                                <?php if (isset($_SESSION['id'])):?>    
+                                        <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col" title="Modifier"><i class="fas fa-pencil-alt"></i></a>
+                                    
+                                    <?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])): ?>
+                                        <a href="#" class="btn btn-outline-warning btn-sm col" title="Suspendre"><i class="fas fa-eye-slash"></i></a>
+                                        <a href="#" class="btn btn-outline-danger btn-sm col" title="Supprimer"><i class="fas fa-trash"></i></a>
+                                    <?php endif; ?> 
+                                <?php endif; ?> 
                             </div>
                         </div>
                     </div>
