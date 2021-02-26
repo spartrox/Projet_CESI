@@ -64,7 +64,7 @@
           <i class="fab fa-twitter"></i>
         </a>
         <!-- Bouton forlumaire de contact +-->
-        <a type="button" class="btn-floatting btn-fb" href="Contact">
+        <a type="button" class="btn-floatting btn-fb" href="<?= BASE_URL . DS . "frontend" . DS . "Contact" ?>">
           <i class="fas fa-envelope mr-3"></i>
         </a>
 
