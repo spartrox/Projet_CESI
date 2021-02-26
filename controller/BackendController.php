@@ -137,9 +137,9 @@ class BackendController extends Controller
                     $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'aside');
                     $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'exploited');
                 } else {
-                    $d['favoris'] = null;
-                    $d['misdecotes'] = null;
-                    $d['exploitees'] = null;
+                    $d['favory'] = null;
+                    $d['aside'] = null;
+                    $d['exploited'] = null;
                 }
                 
 
