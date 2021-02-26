@@ -195,7 +195,7 @@ class BackendController extends Controller
 
     function Ressources()
     {
-        $d['categories'] = $this->RecupererToutesCategories();
+        $d['ressources'] = $this->RecupererToutesRessources();
         $this->set($d);
         $this->render("\Admin\Ressources");
     }

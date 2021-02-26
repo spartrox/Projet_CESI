@@ -6,13 +6,24 @@
         <thead>
             <th scope="col">Titre</th>
             <th scope="col" colspan=2>Description</th>
+            <th scope="col" colspan=3>Fonctionnalités</th>
         </thead>
         <?php 
-        foreach ($categories as $categorie) { ?>
+        foreach ($ressources as $ressource) { ?>
             <tr>
-            <th scope='row' class='col-2'><input id="title<?= $categorie->id?>" class='form-control-plaintext' value='<?= $categorie->title?>' readonly></th>
-            <td class='col-9'><textarea  id="descritption<?= $categorie->id?>" class='form-control-plaintext' readonly><?= $categorie->descritption ?></textarea></td>
-            <td class='col-1'><a id="btn<?= $categorie->id?>" class="btn btn-outline-primary btn-sm" title="Modifier" onclick='ActiverModificationCategories(<?= $categorie->id?>, "title<?= $categorie->id?>", "descritption<?= $categorie->id?>", "btn<?= $categorie->id?>")'><i class="fas fa-pencil-alt"></i></a></td>
+                <th><input id="title<?= $ressource->id?>" class='form-control-plaintext' value='<?= $ressource->title?>' readonly></th>
+                <th><textarea  id="content<?= $ressource->id?>" class='form-control-plaintext' readonly><?= $ressource->content ?></textarea></th>   
+                
+                <th> 
+                    <td>             
+                        <a href=<?= "Ressource/?idRessource=$ressource->id&action=voir" ?> class="btn btn-outline-success btn-sm col-auto" title="Voir"><i class="fas fa-eye"></i></a>
+                        <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col-auto" title="Modifier"><i class="fas fa-pencil-alt"></i></a>    
+                        <a href="#" class="btn btn-outline-success btn-sm col-auto" title="Valider"><i class="fas fa-check"></i></a>
+                        <a href="#" class="btn btn-outline-warning btn-sm col-auto" title="Suspendre"><i class="fas fa-eye-slash"></i></a>
+                        <a href="#" class="btn btn-outline-danger btn-sm col-auto" title="Supprimer"><i class="fas fa-trash"></i></a>
+                    </td>  
+                </th>
+                
             </tr>
         <?php }
         ?>
