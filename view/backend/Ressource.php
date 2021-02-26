@@ -4,7 +4,7 @@
         <div class="form-group row">
             <div class="col-12 mt-1 mb-1">
                 <?php if($nouveau){ ?><span class='badge badge-secondary'>New</span><?php };
-                 if ($exploitees != null && $misdecotes != null && $favoris != null) {
+                 if ($exploited || $aside || $favory) {
                     if ($exploited) { ?>
                         <span class="cliquable"><i id="Exploitee<?= $ressource->id ?>" onclick="FavorisMisDeCoteExploiteeRessource(<?= $ressource->id ?>, <?= $_SESSION['id'] ?>, 'exploited', 'Exploitee<?= $ressource->id ?>', 'retirer')" title="Retirer des ressources exploitées" class="float-right fas fa-check-circle fa-lg m-1" style="color:green"></i></span>
                     <?php } else { ?>
@@ -72,6 +72,10 @@
                     foreach ($categoriesRessource as $categorie) {
                         echo '<br>';
                         echo "<span class='badge badge-secondary'>$categorie->title</span> ";                              
+                    }
+                    if (empty($categoriesRessource))
+                    {
+                        echo '<span class="badge badge-secondary">Sans</span>';
                     }
                 }
                 //Si action est faux, on fait un affichage en checkbox
