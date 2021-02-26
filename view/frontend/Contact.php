@@ -22,7 +22,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
     <input type="submit" name="envoyer" value="Envoyer" />
 </form>
 -->
-
+<!--
 <!DOCTYPE html>
 <html lang="fr">
 <div class="contact">
@@ -48,7 +48,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
                     </div>
                     <div class="form-group">
                     <label for="exampleInputEmail1">Email :</label><br>
-                        <input type="text" class="form-group" name="Sujet" placeholder="Email...."><br>
+                        <input type="text" class="form-group" name="Email" placeholder="Email...."><br>
                     </div>
                     <div class="form-group form-check">
                     <label for="exampleInputEmail1">Message :</label><br>
@@ -56,7 +56,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
                     </div>
                     <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
-
+-->
             <!--
 				<form action="Contact" method="post">
 					Nom entier :<br>
@@ -70,13 +70,13 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
 					<br>
 					<button class="button">Envoyer</button>
 				</form>
-                -->
+                
 			</div>
 		</div>
 	</body>
 </div>
 </html>
-
+-->
 <!--
 <form>
   <div class="form-group">
@@ -95,14 +95,14 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 -->
-
+<div class="container espaceEnHaut">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<div class="container">
+<div class="container espaceEnHaut">
 	<div class="row justify-content-center">
 		<div class="col-12 col-md-8 col-lg-6 pb-5">
 
@@ -125,7 +125,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nom et prénom" required>
+                                        <input type="text" class="form-control" id="nombre" name="Sujet" placeholder="Nom et prénom" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -133,7 +133,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                         </div>
-                                        <input type="email" class="form-control" id="nombre" name="email" placeholder="exemple@gmail.com" required>
+                                        <input type="email" class="form-control" id="nombre" name="Email" placeholder="exemple@gmail.com" required>
                                     </div>
                                 </div>
 
@@ -142,7 +142,7 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                         </div>
-                                        <textarea class="form-control" placeholder="Votre message...." required></textarea>
+                                        <textarea class="form-control" name="Message" placeholder="Votre message...." required></textarea>
                                     </div>
                                 </div>
 
