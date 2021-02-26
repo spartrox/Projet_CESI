@@ -13,7 +13,15 @@
             <tr>
                 <th><input id="pseudo<?= $member->id?>" class='form-control-plaintext' value='<?= $member->pseudo?>' readonly></th>
                 <th><textarea  id="email<?= $member->id?>" class='form-control-plaintext' readonly><?= $member->email ?></textarea></th>  
-                <th><textarea  id="type_account<?= $member->id?>" class='form-control-plaintext' readonly><?= $member->type_account ?></textarea></th>              
+                <th>
+                    <select name="type_account"  class="col-8 form-control-lg" id="EtatSelect">
+                        <?php 
+                            foreach ($comptes as $compte) { ?>
+                                <option <?= ($member->type_account == $compte)? 'selected' : '' ?>><?= $compte ?></option>
+                            <?php }
+                        ?>
+                    </select>
+                </th>              
             </tr>
         <?php }
         ?>

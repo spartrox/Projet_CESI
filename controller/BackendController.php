@@ -9,7 +9,8 @@ class BackendController extends Controller
     private $modMember = null;
 
     private $enumStateRessource = ['private', 'shared', 'public', 'to_validate', 'validate', 'suspended'];
-    
+    private $enumStateCompte = ['citoyen', 'moderateur', 'admin', 'to_validate', 'super_admin'];
+
     ////////////////////////////////
     ////*Fonctions d'affichage*/////
     ////////////////////////////////
@@ -208,8 +209,11 @@ class BackendController extends Controller
     function Comptes()
     {
         $d['members'] = $this->RecupererToutLesComptes();
+        $d['comptes'] = $this->enumStateCompte;
+        
         $this->set($d);
         $this->render("\Admin\Comptes");
+        
     }
 
     function Profil()
