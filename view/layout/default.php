@@ -58,10 +58,6 @@
 							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><?= $l['profile'] ?></a>
 						</li>
 
-						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
-						</li>
-
 						<!-- Début du menu backend moderateur / administrateur / super_administrateur -->
 						<?php if (!in_array($_SESSION['type_account'], ['citoyen'])): ?>
 							<?php if (in_array($_SESSION['type_account'], ['moderateur','admin', 'super_admin'])): ?>  
@@ -93,7 +89,9 @@
 								</div>
 								</div>
 						<?php endif; ?>
-
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
+						</li>
 					<!-- Fin du menu Backend -->		
 					<?php endif; ?> 
 				
