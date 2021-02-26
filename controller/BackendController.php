@@ -132,9 +132,16 @@ class BackendController extends Controller
                 $d['nouveau'] = $this->DeterminerRessourceNouvelle($ressource->register_date);
 
                 //Détermination de l'état de la ressource en fonction de l'utilisateur
-                $d['favory'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'favory');
-                $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'aside');
-                $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'exploited');
+                if(isset($_SESSION['id'])) {
+                    $d['favory'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'favory');
+                    $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'aside');
+                    $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'exploited');
+                } else {
+                    $d['favoris'] = null;
+                    $d['misdecotes'] = null;
+                    $d['exploitees'] = null;
+                }
+                
 
                 //Récupération des commentaires
                 $commentaires = $this->RecupererCommentairesRessource($ressource->id);
