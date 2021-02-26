@@ -57,11 +57,12 @@
         <h5 class="font-weight-bold text-uppercase mb-4"><?= $l['followus&contactus'] ?></h5>
 
         <!-- Facebook -->
-        <a type="button" class="btn-floating btn-fb">
+        <a type="button" class="btn-floating btn-fb" 
+        href="lien.html" target="_blank">
           <i class="fab fa-facebook-f"></i>
         </a>
         <!-- Twitter -->
-        <a type="button" class="btn-floating btn-tw">
+        <a type="button" class="btn-floating btn-tw" href="twitter.com">
           <i class="fab fa-twitter"></i>
         </a>
         <!-- Bouton forlumaire de contact +-->

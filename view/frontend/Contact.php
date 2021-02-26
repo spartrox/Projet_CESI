@@ -41,15 +41,15 @@ name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, 
 				ci-dessous en renseignant les champs demandés.</p>
 			</div>
 			<div class="form-input">
-				<form action="Contact.php" method="post">
+				<form action="Contact" method="post">
 					Nom entier :<br>
-					<input type="text" placeholder="Nom entier...."><br>
+					<input type="text" name="Sujet" placeholder="Nom entier...."><br>
 					<br>
 					Email:<br>
-					<input type="text" placeholder="Email..."></br>
+					<input type="text" name="Mail" placeholder="Email..."></br>
 					<br>
 					Message:<br>
-					<textarea rows="4" placeholder="Message.."></textarea><br>
+					<textarea rows="4" name="Message" placeholder="Message.."></textarea><br>
 					<br>
 					<button class="button">Envoyer</button>
 				</form> 
