@@ -423,7 +423,7 @@ class BackendController extends Controller
     function RestreindreCompte()
     {
         $modComptes = $this->loadModel("membre");
-        $modComptes->update(["donnees" => ["state" => "desativated"], "conditions" => ["id" => $_POST["id"]]]);
+        $modComptes->update(["donnees" => ["state" => "desactivated"], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function ReintegrerCompte()
