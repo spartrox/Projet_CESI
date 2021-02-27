@@ -7,6 +7,7 @@ class BackendController extends Controller
     private $modCategoriesRessources = null;
     private $modCommentaires = null;
     private $modMember = null;
+    private $modContact = null;
 
     private $enumStateRessource = ['private', 'shared', 'public', 'to_validate', 'validate', 'suspended'];
     private $enumStateCompte = ['citoyen', 'moderateur', 'admin', 'to_validate', 'super_admin'];
@@ -203,6 +204,9 @@ class BackendController extends Controller
 
     function Messages()
     {
+        $modContact = $this->loadModel("Contact");
+        $d['contacts'] = $modContact->find(['projections' => 'contact.*', "orderby" => "id DESC"]);
+        $this->set($d);
         $this->render("\Admin\Messages");
     }
 

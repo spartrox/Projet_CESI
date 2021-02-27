@@ -1,5 +1,5 @@
 <div class="container espaceEnHaut">
-    <h1  class="titrePage">Gestion des comptes :</h1>
+    <h1  class="titrePage"><i class="fas fa-users-cog"></i> Gestion des comptes</h1>
     <br>
     <div class="overflow-auto h-75">
         <table class="table table-striped table-bordered">
