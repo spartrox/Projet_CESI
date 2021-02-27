@@ -7,6 +7,7 @@
             <th scope="col">Pseudo</th>
             <th scope="col">Email</th>
             <th scope="col">Type de compte</th>
+            <th scope="col">Fonctionnalités</th>
         </thead>
         <?php 
         foreach ($members as $member) { ?>
@@ -21,7 +22,10 @@
                             <?php }
                         ?>
                     </select>
-                </th>              
+                </th> 
+                <th>   
+                    <a href="#" class="btn btn-outline-danger btn-sm col-auto" title="Suspendre"><i class="fas fa-eye"></i></a>    
+                </th>            
             </tr>
         <?php }
         ?>

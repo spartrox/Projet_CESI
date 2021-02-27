@@ -416,4 +416,28 @@ class BackendController extends Controller
         $modCategories->update(["donnees" => ["title" => $_POST['title'], "descritption" => $_POST['description']],"conditions" => ["id" => $_POST['id']]]);
     }
 
+    function RestreindreCompte()
+    {
+        $modComptes = $this->loadModel("membre");
+        $modComptes->update(["donnees" => ["restraint" => 1], "conditions" => ["id" => $_POST["id"]]]);
+    }
+
+    function ReintegrerCompte()
+    {
+        $modComptes = $this->loadModel("membre");
+        $modComptes->update(["donnees" => ["restraint" => 0], "conditions" => ["id" => $_POST["id"]]]);
+    }
+
+    function RestreindreRessource()
+    {
+        $modRessource = $this->loadModel("Ressources");
+        $modRessource->update(["donnees" => ["restraint" => 1], "conditions" => ["id" => $_POST["id"]]]);
+    }
+
+    function ReintegrerRessource()
+    {
+        $modRessource = $this->loadModel("Ressources");
+        $modRessource->update(["donnees" => ["restraint" => 0], "conditions" => ["id" => $_POST["id"]]]);
+    }
+
 }
