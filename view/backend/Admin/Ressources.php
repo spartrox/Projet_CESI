@@ -1,5 +1,5 @@
 <div class="container espaceEnHaut">
-    <h1>Ressources</h1>
+    <h1  class="titrePage">Gestions des ressources : </h1>
     <br>
     <div class="overflow-auto h-75">
         <table class="table table-striped table-bordered">

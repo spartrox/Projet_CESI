@@ -1,6 +1,6 @@
 <div class="container espaceEnHaut">
     <div class="row">
-        <div class="pt-2 pb-2"><h1><i class="fas fa-book-open"></i> Catalogue</h1></div>
+        <div class="pt-2 pb-2 titrePage"><h1><i class="fas fa-book-open"></i> Catalogue</h1></div>
     </div>
     <div class="row pb-2">
         <div class="alert alert-light" role="alert">

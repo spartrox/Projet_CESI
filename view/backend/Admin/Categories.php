@@ -1,7 +1,7 @@
 <div class="container espaceEnHaut">
     <div class="row">
         <div class="col-3">
-            <h1><i class="fas fa-grip-vertical"></i> Catégories</h1>
+            <h1 class="titrePage"><i class="fas fa-grip-vertical"></i> Catégories</h1>
         </div>
         <div class="col-9">
             <i id="btnAjout" class="text-primary cliquable float-right fas fa-plus-circle fa-2x fa-lg m-1" title="Ajouter une nouvelle catégorie" onclick="AjouterCategorie('tabCategories', 'btnAjout')"></i>

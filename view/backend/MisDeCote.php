@@ -1,7 +1,5 @@
 <div class="container espaceEnHaut">
-    <div class="row">
-        <div><h1>Mis de côté</h1></div>
-    </div>
+    <h1 class="titrePage">Ressources mise de côté :</h1><br>
     <div class="row">
         <ul>
         <?php 
