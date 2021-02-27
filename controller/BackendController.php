@@ -302,7 +302,7 @@ class BackendController extends Controller
     {
         //Récupération de toutes les catégories existantes
         $this->modCategories = $this->loadModel("Categories");
-        $params = ['projections' => 'category.*']; 
+        $params = ['projections' => 'category.*', 'orderby' => 'title ASC']; 
         return $this->modCategories->find($params);
     }
 
@@ -438,6 +438,19 @@ class BackendController extends Controller
     {
         $modRessource = $this->loadModel("Ressources");
         $modRessource->update(["donnees" => ["restraint" => 0], "conditions" => ["id" => $_POST["id"]]]);
+    }
+
+    function AjouterNouvelleRessource()
+    {
+        $modCategories = $this->loadModel("Categories");
+        $modCategories->insertAI(['title', 'descritption',], [$_POST['title'],$_POST['description']]);
+        $modCategories->findFirst(['projections' => 'category.id', 'conditions' => "title = ".$_POST['title']." and description = ".$_POST['description']]);
+    }
+
+    function SupprimerRessource()
+    {
+        $modCategories = $this->loadModel("Categories");
+        $modCategories->delete(['conditions' => ["id" => $_POST['id']]]);
     }
 
 }

@@ -241,10 +241,10 @@ function ModifierRessources(id_category, idHtlmTitre, idHtlmDescription, idBtn)
     titre = document.getElementById(idHtlmTitre).value;
     description = document.getElementById(idHtlmDescription).value;
     xmlhttp.send("id="+id_category+"&title="+titre+"&description="+description);
-    //Activation du titre
+    //Désactivation du titre
     document.getElementById(idHtlmTitre).setAttribute('readonly', '');
     document.getElementById(idHtlmTitre).setAttribute("class", "form-control-plaintext");
-    //Activation de la description
+    //Désactivation de la description
     document.getElementById(idHtlmDescription).setAttribute('readonly', '');
     document.getElementById(idHtlmDescription).setAttribute("class", "form-control-plaintext");
     //Changement du bouton
@@ -252,6 +252,59 @@ function ModifierRessources(id_category, idHtlmTitre, idHtlmDescription, idBtn)
     document.getElementById(idBtn).setAttribute("class", "btn btn-outline-primary btn-sm");
     document.getElementById(idBtn).setAttribute("onclick", "ActiverModificationCategories("+id_category+",'"+idHtlmTitre+"','"+ idHtlmDescription+"','"+ idBtn +"')");
     document.getElementById(idBtn).setAttribute("title", "Modifier");
+}
+
+function AjouterCategorie(idTableauCategories, idbtnAjout)
+{
+    document.getElementById(idbtnAjout).setAttribute('onclick', '');
+    document.getElementById(idbtnAjout).setAttribute('class', 'text-secondary float-right fas fa-plus-circle fa-2x fa-lg m-1');
+    var onclick = 'EnregistrerNouvelleCategorie("titleNew", "descritptionNew", "btnValider", "'+idbtnAjout+'")';
+    document.getElementById(idTableauCategories).innerHTML = "<tr id='CategorieNew'><th scope='row'><input id='titleNew' class='form-control' value='' placeholder='Titre de la catégorie'></th>"
+    + "<td><textarea  id='descritptionNew' class='form-control' placeholder='Description de la catégorie'></textarea></td>"
+    + "<td>"
+    + "<a id='btnValider' href='#' class='btn btn-outline-success btn-sm' title='Valider' onclick='"+onclick+"'><i class='fas fa-check' aria-hidden='true'></i></a>"
+    + " <a href='#' class='btn btn-outline-danger btn-sm' title='Annuler' onclick='AnnulerAjoutCategorie()'><i class='fas fa-times' aria-hidden='true'></i></a>"
+    + "</td></tr>"
+    + document.getElementById(idTableauCategories).innerHTML;
+}
+
+function AnnulerAjoutCategorie()
+{
+    if (confirm("Voulez vous annuler la création de cette nouvelle catégorie ?")){
+        window.location.reload();
+    }
+}
+
+function EnregistrerNouvelleCategorie(idHtlmTitre, idHtlmDescription, idBtn)
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "AjouterNouvelleRessource", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    titre = document.getElementById(idHtlmTitre).value;
+    description = document.getElementById(idHtlmDescription).value;
+    xmlhttp.send("title="+titre+"&description="+description);
+    //Rechargement de la page
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            window.location.reload();
+        }
+    }
+}
+
+function SupprimerCategorie(id_category, idhtmlligne)
+{
+    if (confirm("Voulez vous vraiment supprimer cette catégorie ?\nCela affectera toutes les ressources liés à cette catégorie !"))
+    {
+        //Préparation de la requète
+        xmlhttp = prepareXMLHTTP();
+        xmlhttp.open("POST", "SupprimerRessource", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id="+id_category);
+        //Disparition de la ligne
+        document.getElementById(idhtmlligne).style.display = "none"; 
+    }
+    
 }
 
 function prepareXMLHTTP()

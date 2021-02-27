@@ -33,55 +33,54 @@
 			  
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Accueil" ?>"><?= $l['home'] ?></a>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Accueil" ?>"><i class="fas fa-home"></i> <?= $l['home'] ?></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>"><?= $l['catalogue'] ?></a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Catalogue" ?>"><i class="fas fa-book-open"></i> <?= $l['catalogue'] ?></a>
 						</li>
 
 						<!-- Début du menu backend -->
 					<?php if (isset($_SESSION['id'])):?> 
 						<div class="btn-group">
-							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase"><?= $l['dashboard'] ?></a>
+							<a type="button" href="<?= BASE_URL . DS . "backend/Tableaudebord" ?>" class="nav-link text-uppercase"><i class="fas fa-clipboard"></i> <?= $l['dashboard'] ?></a>
 							<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span class="sr-only">Toggle Dropdown</span>
 							</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><?= $l['favory'] ?></a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><?= $l['aside'] ?></a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><?= $l['create_edit'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><i class="fas fa-star"></i> <?= $l['favory'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><i class="fas fa-bookmark"></i> <?= $l['aside'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><i class="fas fa-plus-circle"></i> <?= $l['create_edit'] ?></a>
 							</div>
 						</div>
 
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><?= $l['profile'] ?></a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Profil" ?>"><i class="fas fa-id-card"></i> <?= $l['profile'] ?></a>
 						</li>
 
 						<!-- Début du menu backend moderateur / administrateur / super_administrateur -->
 						<?php if (!in_array($_SESSION['type_account'], ['citoyen'])): ?>
 							<?php if (in_array($_SESSION['type_account'], ['moderateur','admin', 'super_admin'])): ?>  
-								<div class="btn-group">
-									<a type="button" class="nav-link text-uppercase"><?=$l['administrator'] ?></a>
-									<a type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<span class="sr-only">Toggle Dropdown</span>
+								<div class="dropdown">
+									<a class="dropdown-toggle nav-link text-uppercase" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<i class="fas fa-cogs"></i> <?=$l['administrator'] ?>
 									</a>
-								<div class="dropdown-menu">
-										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Messages" ?>">Gestions des messages
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Messages" ?>"><i class="fas fa-envelope"></i> Messages reçus
 										</a>
-										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Ressources" ?>">Gestions des ressources
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Ressources" ?>"><i class="fas fa-file"></i> Ressources
 										</a>
 		
 							<?php endif; ?> 
 
 							<?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])): ?>								
-										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Categories" ?>">Gestions des catégories
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Categories" ?>"><i class="fas fa-grip-vertical"></i> Catégories
 										</a>								
 							<?php endif; ?> 
 								
 							
 							<?php if (in_array($_SESSION['type_account'], ['super_admin'])): ?>
-										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Comptes" ?>">Gestions des comptes
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Comptes" ?>"><i class="fas fa-users-cog"></i> Comptes
 										</a>
 										
 								
@@ -90,7 +89,7 @@
 								</div>
 						<?php endif; ?>
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><?= $l['signout'] ?></a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Deconnexion" ?>"><i class="fas fa-sign-out-alt"></i> <?= $l['signout'] ?></a>
 						</li>
 					<!-- Fin du menu Backend -->		
 					<?php endif; ?> 
@@ -98,10 +97,10 @@
 					<!-- Début du menu Frontend -->
 					<?php if (!isset($_SESSION['id'])): ?> 					
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>"><?= $l['signup'] ?></a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Inscription" ?>"><i class="fas fa-user-plus"></i> <?= $l['signup'] ?></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>"><?= $l['signin'] ?></a>
+							<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "frontend/Connexion" ?>"><i class="fas fa-sign-in-alt"></i> <?= $l['signin'] ?></a>
 						</li>	
 					<?php endif; ?>				
 						<form class="form-inline">

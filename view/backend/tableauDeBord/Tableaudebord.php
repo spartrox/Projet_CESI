@@ -1,6 +1,6 @@
 <div class="container espaceEnHaut">
     <div class="row">
-        <h1>Tableau de bord</h1>
+        <h1><i class="fas fa-clipboard"></i> Tableau de bord</h1>
     </div>
     <div class="row">
         <div class="col-12 col-lg-6 pt-5">
