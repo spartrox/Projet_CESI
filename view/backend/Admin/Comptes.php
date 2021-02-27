@@ -15,7 +15,7 @@
                 <th><input id="pseudo<?= $member->id?>" class='form-control-plaintext' value='<?= $member->pseudo?>' readonly></th>
                 <th><textarea  id="email<?= $member->id?>" class='form-control-plaintext' readonly><?= $member->email ?></textarea></th>  
                 <th>
-                    <select name="type_account"  class="box" id="EtatSelect">
+                    <select onchange="alert('ok')" name="type_account"  class="box" id="EtatSelect">
                         <?php 
                             foreach ($comptes as $compte) { ?>
                                 <option <?= ($member->type_account == $compte)? 'selected' : '' ?>><?= $compte ?></option>
