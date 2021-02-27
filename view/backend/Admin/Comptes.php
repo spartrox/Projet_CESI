@@ -25,9 +25,9 @@
                 </th> 
                 <th>
                 <?php if($member->state=="activated"){?>    
-                    <a id="btn<?= $member->id?>" href="#" class="btn btn-outline-danger btn-sm col-auto" title="Désactivation" onclick="RestreindreCompte(<?= $member->id ?>, 'btn<?= $member->id ?>')"><i class="fas fa-eye-slash"></i></a> 
+                    <a id="btn<?= $member->id?>" href="#" class="btn btn-outline-danger btn-sm col-auto" title="Désactivation" onclick="RestreindreCompte(<?= $member->id ?>, 'btn<?= $member->id ?>')"><i class="fas fa-user-slash"></i></a> 
                 <?php } else { ?>
-                    <a id="btn<?= $member->id?>" href="#" class="btn btn-outline-success btn-sm col-auto" title="Réactivation" onclick="ReintegrerCompte(<?= $member->id ?>, 'btn<?= $member->id ?>')"><i class="fas fa-eye"></i></a>   
+                    <a id="btn<?= $member->id?>" href="#" class="btn btn-outline-success btn-sm col-auto" title="Réactivation" onclick="ReintegrerCompte(<?= $member->id ?>, 'btn<?= $member->id ?>')"><i class="fas fa-user-check"></i></a>   
                 <?php } ?>
                 </th>            
             </tr>

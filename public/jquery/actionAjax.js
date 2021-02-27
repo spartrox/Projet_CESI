@@ -316,7 +316,11 @@ function RestreindreCompte(id_member, idhtmlbtn)
         xmlhttp.open("POST", "RestreindreCompte", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("id="+id_member);
-
+        //Changement bouton
+        document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-user-check'></i>";
+        document.getElementById(idhtmlbtn).setAttribute("class", "btn btn-outline-success btn-sm col-auto");
+        document.getElementById(idhtmlbtn).setAttribute("onclick", "ReintegrerCompte("+id_member+", 'btn"+id_member+"')");
+        document.getElementById(idhtmlbtn).setAttribute("title", "Réactivation");
     }
 }
 
@@ -327,6 +331,11 @@ function ReintegrerCompte(id_member, idhtmlbtn)
     xmlhttp.open("POST", "ReintegrerCompte", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("id="+id_member);
+    //Changement bouton
+    document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-user-slash'></i>";
+    document.getElementById(idhtmlbtn).setAttribute("class", "btn btn-outline-danger btn-sm col-auto");
+    document.getElementById(idhtmlbtn).setAttribute("onclick", "RestreindreCompte("+id_member+", 'btn"+id_member+"')");
+    document.getElementById(idhtmlbtn).setAttribute("title", "Désactivation");
 
 }
 
