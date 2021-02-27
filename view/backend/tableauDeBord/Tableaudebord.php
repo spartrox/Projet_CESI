@@ -1,7 +1,5 @@
 <div class="container espaceEnHaut">
-    <div class="row">
-        <h1>Tableau de bord</h1>
-    </div>
+    <h1 class="titrePage">Tableau de bord :</h1>
     <div class="row">
         <div class="col-12 col-lg-6 pt-5">
             <h2 style="padding-bottom: 1%"><i class="far fa-file"></i> Mes Fichiers</h2>

@@ -1,5 +1,5 @@
-<br>
 <div class="container espaceEnHaut">
+<h1 class="titrePage"> Votre profil :</h1><br>
     <div class="main-body">
 		<br>
           <div class="row gutters-sm">

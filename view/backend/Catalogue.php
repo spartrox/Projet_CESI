@@ -1,7 +1,5 @@
 <div class="container espaceEnHaut">
-    <div class="row">
-        <div class="pt-2 pb-2"><h1>Catalogue</h1></div>
-    </div>
+    <h1  class="titrePage">Catalogue :</h1>
     <div class="row pb-2">
         <div class="alert alert-light" role="alert">
         <?php if (isset($_SESSION['id'])):?> 

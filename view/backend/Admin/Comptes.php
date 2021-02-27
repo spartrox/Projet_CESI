@@ -1,5 +1,5 @@
 <div class="container espaceEnHaut">
-    <h1>Comptes</h1>
+    <h1  class="titrePage">Gestion des comptes :</h1>
     <br>
     <div class="overflow-auto h-75">
         <table class="table table-striped table-bordered">
@@ -15,7 +15,7 @@
                 <th><input id="pseudo<?= $member->id?>" class='form-control-plaintext' value='<?= $member->pseudo?>' readonly></th>
                 <th><textarea  id="email<?= $member->id?>" class='form-control-plaintext' readonly><?= $member->email ?></textarea></th>  
                 <th>
-                    <select name="type_account"  class="col-8 form-control-lg" id="EtatSelect">
+                    <select name="type_account"  class="box" id="EtatSelect">
                         <?php 
                             foreach ($comptes as $compte) { ?>
                                 <option <?= ($member->type_account == $compte)? 'selected' : '' ?>><?= $compte ?></option>
@@ -24,11 +24,13 @@
                     </select>
                 </th> 
                 <th>   
-                    <a href="#" class="btn btn-outline-danger btn-sm col-auto" title="Suspendre"><i class="fas fa-eye"></i></a>    
+                    <a href="#" class="btn btn-outline-danger btn-sm col-auto" title="Désactivation"><i class="fas fa-eye-slash"></i></a> 
+                    <a href="#" class="btn btn-outline-success btn-sm col-auto" title="Réactivation"><i class="fas fa-eye"></i></a>   
                 </th>            
             </tr>
         <?php }
         ?>
-        </table>
+        </table><br>
+        <h2 class="titrePage">Ajout d'un compte</h2>
     </div>
 </div>
