@@ -307,6 +307,29 @@ function SupprimerCategorie(id_category, idhtmlligne)
     
 }
 
+function RestreindreCompte(id_member, idhtmlbtn)
+{
+    if (confirm("Voulez vous vraiment désactiver ce compte ?"))
+    {
+        //Préparation de la requète
+        xmlhttp = prepareXMLHTTP();
+        xmlhttp.open("POST", "RestreindreCompte", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id="+id_member);
+
+    }
+}
+
+function ReintegrerCompte(id_member, idhtmlbtn)
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "ReintegrerCompte", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("id="+id_member);
+
+}
+
 function prepareXMLHTTP()
 {
     if (window.XMLHttpRequest) {

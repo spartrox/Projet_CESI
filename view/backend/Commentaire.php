@@ -22,7 +22,7 @@
                         <td class='col-5'><em><?=$membre->first_name?> <?=$membre->last_name?> le <?=$commentaire->date_message?></em></td>
                         <td><?=$commentaire->text?></td>
                         <td class='col-1'>
-                            <button id="btnCom<?=$commentaire->id_commentary ?>" title="Restraindre le commentaire" class='btn btn-warning' onclick='RestraindreCommentaire(<?= $ressource->id ?>, <?= $commentaire->id_commentary ?>, "Com<?= $commentaire->id_commentary ?>", "btnCom<?=$commentaire->id_commentary ?>")'>
+                            <button id="btnCom<?=$commentaire->id_commentary ?>" title="Restreindre le commentaire" class='btn btn-warning' onclick='RestreindreCommentaire(<?= $ressource->id ?>, <?= $commentaire->id_commentary ?>, "Com<?= $commentaire->id_commentary ?>", "btnCom<?=$commentaire->id_commentary ?>")'>
                                 <i class="fas fa-flag fa-2x"></i>
                             </button>
                         </td>

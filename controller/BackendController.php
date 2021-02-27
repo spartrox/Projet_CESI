@@ -402,7 +402,7 @@ class BackendController extends Controller
         $modCommentaires->insertAI(['id_ressources', 'text', 'id_member'], [$_POST['id_ressource'],$_POST['text'],$_POST['id_member']]);
     }
 
-    function RestraindreCommentaire()
+    function RestreindreCommentaire()
     {
         $modCommentaires = $this->loadModel("Commentaires");
         $modCommentaires->update(["donnees" => ["restraint " => 1],"conditions" => ["id_commentary" => $_POST['id_commentary'], "id_ressources" => $_POST['id_ressource']]]);
@@ -423,25 +423,25 @@ class BackendController extends Controller
     function RestreindreCompte()
     {
         $modComptes = $this->loadModel("membre");
-        $modComptes->update(["donnees" => ["restraint" => 1], "conditions" => ["id" => $_POST["id"]]]);
+        $modComptes->update(["donnees" => ["state" => "desativated"], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function ReintegrerCompte()
     {
         $modComptes = $this->loadModel("membre");
-        $modComptes->update(["donnees" => ["restraint" => 0], "conditions" => ["id" => $_POST["id"]]]);
+        $modComptes->update(["donnees" => ["state" => "activated"], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function RestreindreRessource()
     {
         $modRessource = $this->loadModel("Ressources");
-        $modRessource->update(["donnees" => ["restraint" => 1], "conditions" => ["id" => $_POST["id"]]]);
+        $modRessource->update(["donnees" => ["state" => ['suspended']], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function ReintegrerRessource()
     {
         $modRessource = $this->loadModel("Ressources");
-        $modRessource->update(["donnees" => ["restraint" => 0], "conditions" => ["id" => $_POST["id"]]]);
+        $modRessource->update(["donnees" => ["state" => ['public']], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function AjouterNouvelleRessource()
