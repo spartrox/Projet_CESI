@@ -37,17 +37,17 @@
     </div>
 </div>
 <div class="contour">
-    <div class="aligneDroite">
+    <div class="aligneCenter">
         <h3><i class="fas fa-folder-open"></i> <?= $l['deposityourresources'] ?></h3>
     </div>
 </div>
 <div class="contour">
-    <div class="aligneGauche">
+    <div class="aligneCenter">
         <h3><?= $l['orcreateyourownsources'] ?> <i class="far fa-file"></i></h3>
     </div>
 </div>
 <div class="contour">    
-    <div class="aligneDroite">
+    <div class="aligneCenter">
         <h3><i class="far fa-user-circle"></i> <?= $l['commentandshare'] ?></h3>
     </div>
 </div>
