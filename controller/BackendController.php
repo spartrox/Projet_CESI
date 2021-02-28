@@ -220,6 +220,73 @@ class BackendController extends Controller
         
     }
 
+    function NouveauCompte()
+    {
+            // Permet d'appeler l'erreur et le message erreur, par défaut il est faux
+            $d["erreur"] = false;
+            $d["msgErreur"] = false;
+            
+            // Permet de savoir si on a reçus un formulaire
+            if (!empty($_POST)){ 
+    
+                // Appelle la fonction CheckFormulaire
+                $d = $this->CheckFormulaire();
+                
+                //  si il n'y a pas d'erreurs, on passe à l'étape suivante 
+                if($d["erreur"] == false){
+                    
+                    // Sert à charger le model
+                    $modmembre = $this->loadModel("membre");
+    
+                    // Colonnes à utiliser de la BDD
+                    $colonnes = ["pseudo", "email", "password"];
+    
+                    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+                    
+                    // Déterminer les données récupérées depuis le formulaire, qui seront utilisées
+                    $donnees = [ $_POST["pseudo"], $_POST["email"], $mdp];
+    
+                    // Insertion en autoIncrément dans la table 
+                    $modmembre->InsertAI($colonnes,$donnees);
+    
+                    // Redirection sur la page Connexion
+                    $this->redirect("/backend/Comptes");
+                }
+            }
+            // Injection des variables dans la vue
+            $d['members'] = $this->RecupererToutLesComptes();
+            $d['comptes'] = $this->enumStateCompte;
+    
+            $this -> set($d);
+            $this->render("Admin/NouveauCompte");
+
+    }
+    function CheckFormulaire(){
+
+        $pseudo = $_POST["pseudo"];
+        
+        // Sert à charger le model
+        $modmembre = $this->loadModel("membre");
+        
+        // Select table membre et vérification si le pseudo existe ou pas 
+        $params = ["projection" => "member.pseudo","conditions" => "pseudo = '$pseudo'"];
+
+        // Lance la requête
+        $pseudoExiste = $modmembre->findFirst($params); 
+
+        // Par défaut c'est a false
+        $d["erreur"] = false;
+
+        //différent de null
+        if($pseudoExiste != null){
+
+            // Si y il a un problème sa passe à true
+            $d["erreur"] = true;
+            $d["msgErreur"] = "Pseudo déja utilisé";
+        } 
+        return $d;
+    }
+
     function Profil()
     {
         $this->render("Profil");

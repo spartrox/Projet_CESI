@@ -24,7 +24,7 @@
 <?php  } ?>
 
   <!-- Début du Frontend de la page inscription -->
-<h2 class="titrePage">INSCRIPTION</h2>
+<h2 class="titrePage">Inscription</h2>
   <br/><br />
       <div class="container">
           <form class="col-md-5 container" method="post">
@@ -46,18 +46,18 @@
                   <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                   </div>
-                      <input class="form-control" placeholder="mot de passe" id="mdp" name="mdp" type="password" required>
+                      <input class="form-control" placeholder="Mot de passe" id="mdp" name="mdp" type="password" required>
               </div>
 
               <div class="form-group input-group">
                   <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                   </div>
-                      <input class="form-control" placeholder="confirmer votre mot de passe" id="mdp2" name="mdp2" type="password" required>
+                      <input class="form-control" placeholder="Confirmer votre mot de passe" id="mdp2" name="mdp2" type="password" required>
               </div>
 
-              <div class="form-group"><br/> 
-                  <input type="submit" class="btn btn-primary" name="forminscription" value="Je m'inscris" id="inscription"/>
+              <div class="form-group">
+                  <input type="submit" class="btn btn-primary" name="forminscription" value="Je m'inscris" />
               </div>
 
           </form><br>

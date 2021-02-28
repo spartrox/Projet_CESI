@@ -26,13 +26,13 @@
         </a>
     </div>
 </div>
-<div class="container boutons">
-    <div class="row">
+<div class="contour">
+    <div class="row aligneCenter">
         <div class="col-6 col-lg-6 d-flex justify-content-center">
-            <a class="btn btn-primary" href="Connexion"><?= $l['signin'] ?></a>
+            <a id="connexion" class="btn" href="Connexion"><?= $l['signin'] ?></a>
         </div>
         <div class="col-6 col-lg-6 d-flex justify-content-center">
-            <a class="btn btn-primary" href="Inscription"><?= $l['signup'] ?></a>
+            <a id="inscription" class="btn" href="Inscription"><?= $l['signup'] ?></a>
         </div>
     </div>
 </div>

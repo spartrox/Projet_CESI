@@ -24,7 +24,7 @@
 <?php  } ?>
 
 <!-- Début du Frontend de la page inscription -->
-<h2 class="titrePage">CONNEXION</h2>	
+<h2 class="titrePage">Connexion</h2>	
 		<br><br>
 			<div class="container">
 				<form class="container col-md-5 formulaire"  method="post">			

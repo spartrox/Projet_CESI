@@ -1,3 +1,9 @@
+/*
+#fondMenu{
+     A modifier pour le responsive 
+} 
+*/
+
 .titrePage{
     color: #03989e;
     padding-top:5%;
@@ -82,6 +88,7 @@
 
 .contour{
     background-color: rgba(9,152,158,0.8); 
+    margin-top: 2%;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 2%;
@@ -113,9 +120,13 @@
     padding-left: 5%;
 }
 
-.boutons{
-    margin-top: 2%;
-    margin-bottom: 2%;
+#connexion, #inscription{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: #269DA2;
+    padding: 2%;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5) ;
 }
 
 .logo{

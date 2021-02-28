@@ -1,6 +1,12 @@
 <div class="container espaceEnHaut">
-    <h1  class="titrePage"><i class="fas fa-users-cog"></i> Gestion des comptes</h1>
-    <br>
+<div class="row">
+        <div class="col-0">
+            <h1 class="titrePage"><i class="fas fa-users-cog"></i> Gestion des comptes</h1>
+        </div>
+        <div class="col-12">
+            <a href="NouveauCompte"><i class="text-primary cliquable float-right fas fa-plus-circle fa-2x fa-lg m-1" title="Ajouter un nouveau compte" ></i></a>
+        </div>
+    </div><br>
     <div class="overflow-auto h-75">
         <table class="table table-striped table-bordered">
         <thead>
@@ -34,6 +40,5 @@
         <?php }
         ?>
         </table><br>
-        <h2 class="titrePage">Ajout d'un compte</h2>
     </div>
 </div>
