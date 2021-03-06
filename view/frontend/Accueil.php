@@ -26,7 +26,7 @@
         </a>
     </div>
 </div>
-<div class="contour">
+<div>
     <div class="row aligneCenter">
         <div class="col-6 col-lg-6 d-flex justify-content-center">
             <a id="connexion" class="btn" href="Connexion"><?= $l['signin'] ?></a>
