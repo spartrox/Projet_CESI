@@ -28,7 +28,7 @@ class BackendController extends Controller
         $d['creations'] = $this->DeterminerCréationRessources('Gabriel');
         //Préparation de l'affichage
         $this->set($d);
-        $this->render("tableauDeBord/Tableaudebord");
+        $this->render("Tableaudebord");
     }
 
     function Catalogue()
@@ -168,10 +168,95 @@ class BackendController extends Controller
         
         
     }
-
-    function CreationEdition()
+        //A MODIFIER 
+    function Creation()
     {
-        $this->render("CreationEdition");
+        
+        if (!isset($_GET['idRessource'], $_GET['action']) or ($_GET['idRessource'] == '' or $_GET['action'] == ''))
+        {
+            $this->e404("Paramètres manquants ou incorrects !");
+        } else {
+            $this->modRessources = $this->loadModel("Ressources");
+            //Récupération de l'id de la ressource et de l'action
+            $idRessource = $_GET['idRessource'];
+            $action = $_GET['action'];
+
+            //Détermination si le formulaire de modification est envoyé
+            if (!empty($_POST))
+            {
+                //Update de la ressource
+                $image = ($_POST['image'] == '') ? $_POST['imageold'] : $_POST['image'] ;
+                $params = ['donnees' => ['title' => $_POST['title'], 'content' => $_POST['content'], 'image' => $image, 'state' => $_POST['state']], 'conditions' => ['id' => $idRessource]];
+                $this->modRessources->update($params);
+
+                $this->ModifierCategoriesRessource($idRessource, $_POST['categories']);
+
+            }
+
+            //Récupération de la ressoure
+            $params = ['projections' => 'ressources.*', 'conditions' => 'id = ' . $idRessource];
+            $ressource = $this->modRessources->findFirst($params);
+            if (!empty($ressource))
+            {
+                //Détermination de l'action en cours (voir ou modifier)
+                if ($action == 'modifier')
+                { 
+                    $d['action'] = false; 
+                } elseif ($action == 'voir') 
+                {
+                    $d['action'] = true;
+                } else
+                {
+                    $this->e404("Désolé mais l'action '$action' n'existe pas !");
+                }
+
+                //Récupération de toutes les catégories
+                $d['categories'] = $this->RecupererToutesCategories();
+
+                //Récupération des id des catégories de la ressource
+                $idCategoriesRessource = [];
+                $categoriesRessource = $this->DeterminerCategoriesRessource($ressource->id);
+                $d['categoriesRessource'] = $categoriesRessource;
+                foreach ($categoriesRessource as $categorie) {
+                    array_push($idCategoriesRessource, $categorie->id);
+                }
+                $d['idCategoriesRessource'] = $idCategoriesRessource;
+
+                //chargement de la ressource
+                $d['ressource'] = $ressource;
+                $d['nouveau'] = $this->DeterminerRessourceNouvelle($ressource->register_date);
+
+                //Détermination de l'état de la ressource en fonction de l'utilisateur
+                if(isset($_SESSION['id'])) {
+                    $d['favory'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'favory');
+                    $d['aside'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'aside');
+                    $d['exploited'] = $this->DeterminerRessourceFavorisMisDeCoteExploite($_SESSION['id'], $ressource->id, 'exploited');
+                } else {
+                    $d['favory'] = null;
+                    $d['aside'] = null;
+                    $d['exploited'] = null;
+                }
+                
+
+                //Récupération des commentaires
+                $commentaires = $this->RecupererCommentairesRessource($ressource->id);
+                $d['commentaires'] = $commentaires;
+
+                //Récupération des membre liès aux commentaires
+                $membresCommentaires = [];
+                foreach ($commentaires as $commentaire) { $membresCommentaires[$commentaire->id_commentary] = $this->RecupererMembre($commentaire->id_member); }
+                $d['membres'] = $membresCommentaires;
+
+                //Ajout des états de la ressource
+                $d['states'] = $this->enumStateRessource;
+
+                //Chargement de l'affichage
+                $this->set($d);
+                $this->render("Creation");
+            } else{
+                $this->e404("Impossible de créer une ressource, veuillez recommencer !");
+            }       
+        }
     }
 
     function Favoris()
@@ -198,6 +283,8 @@ class BackendController extends Controller
     function Ressources()
     {
         $d['ressources'] = $this->RecupererToutesRessources();
+        $d['comptes'] = $this->enumStateRessource;
+        
         $this->set($d);
         $this->render("\Admin\Ressources");
     }

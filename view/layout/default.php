@@ -50,7 +50,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Favoris" ?>"><i class="fas fa-star"></i> <?= $l['favory'] ?></a>
 								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/MisDeCote" ?>"><i class="fas fa-bookmark"></i> <?= $l['aside'] ?></a>
-								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/CreationEdition" ?>"><i class="fas fa-plus-circle"></i> <?= $l['create_edit'] ?></a>
+								<a class="dropdown-item text-uppercase" href="<?= BASE_URL . DS . "backend/Creation" ?>"><i class="fas fa-plus-circle"></i> <?= $l['create_edit'] ?></a>
 							</div>
 						</div>
 
