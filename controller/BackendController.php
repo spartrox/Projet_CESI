@@ -636,10 +636,15 @@ class BackendController extends Controller
         $modCategories->findFirst(['projections' => 'category.id', 'conditions' => "title = ".$_POST['title']." and description = ".$_POST['description']]);
     }
 
-    function SupprimerRessource()
+    function SupprimerCategorie()
     {
         $modCategories = $this->loadModel("Categories");
         $modCategories->delete(['conditions' => ["id" => $_POST['id']]]);
     }
 
+    function SupprimerRessource()
+    {
+        $modCategories = $this->loadModel("Ressources");
+        $modCategories->delete(['conditions' => ["id" => $_POST['id']]]);
+    }
 }

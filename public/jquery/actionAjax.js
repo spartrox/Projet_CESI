@@ -298,7 +298,7 @@ function SupprimerCategorie(id_category, idhtmlligne)
     {
         //Préparation de la requète
         xmlhttp = prepareXMLHTTP();
-        xmlhttp.open("POST", "SupprimerRessource", true);
+        xmlhttp.open("POST", "SupprimerCategorie", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("id="+id_category);
         //Disparition de la ligne
@@ -332,7 +332,7 @@ function RestreindreRessource(id, idhtmlbtn)
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("id="+id);
         //Changement bouton
-        document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-user-check'></i>";
+        document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-file-upload'></i>";
         document.getElementById(idhtmlbtn).setAttribute("class", "btn btn-outline-success btn-sm col-auto");
         document.getElementById(idhtmlbtn).setAttribute("onclick", "ReintegrerRessource("+id+", 'btn"+id+"')");
         document.getElementById(idhtmlbtn).setAttribute("title", "Réactivation");
@@ -347,7 +347,7 @@ function ReintegrerRessource(id, idhtmlbtn)
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("id="+id);
     //Changement bouton
-    document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-user-slash'></i>";
+    document.getElementById(idhtmlbtn).innerHTML = "<i class='fas fa-file-excel'></i>";
     document.getElementById(idhtmlbtn).setAttribute("class", "btn btn-outline-danger btn-sm col-auto");
     document.getElementById(idhtmlbtn).setAttribute("onclick", "RestreindreRessource("+id+", 'btn"+id+"')");
     document.getElementById(idhtmlbtn).setAttribute("title", "Désactivation");

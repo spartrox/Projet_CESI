@@ -18,9 +18,9 @@
                     <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col-auto" title="Modifier"><i class="fas fa-pencil-alt"></i></a>    
                     <!--<a href="#" class="btn btn-outline-success btn-sm col-auto" title="Valider"><i class="fas fa-check"></i></a> -->
                     <?php if($ressource->state=="suspended"){?>   
-                    <a id="btn<?= $ressource->id?>" href="#" class="btn btn-outline-success btn-sm col-auto" title="Réactivation" onclick="ReintegrerRessource(<?= $ressource->id ?>, 'btn<?= $ressource->id ?>')"><i class="fas fa-user-check"></i></a>  
+                    <a id="btn<?= $ressource->id?>" href="#" class="btn btn-outline-success btn-sm col-auto" title="Réactivation" onclick="ReintegrerRessource(<?= $ressource->id ?>, 'btn<?= $ressource->id ?>')"><i class="fas fa-file-upload"></i></a>  
                 <?php } else { ?>
-                    <a id="btn<?= $ressource->id?>" href="#" class="btn btn-outline-danger btn-sm col-auto" title="Désactivation" onclick="RestreindreRessource(<?= $ressource->id ?>, 'btn<?= $ressource->id ?>')"><i class="fas fa-user-slash"></i></a>
+                    <a id="btn<?= $ressource->id?>" href="#" class="btn btn-outline-danger btn-sm col-auto" title="Désactivation" onclick="RestreindreRessource(<?= $ressource->id ?>, 'btn<?= $ressource->id ?>')"><i class="fas fa-file-excel"></i></a>
                 <?php } ?>
                     <a href="#" id="btnSupp<?= $ressource->id?>" class="btn btn-outline-danger btn-sm col-auto" title="Supprimer" onclick="SupprimerRessource(<?= $ressource->id?>, 'Ressource<?= $ressource->id?>')"><i class="fas fa-trash"></i></a> 
                 </th>

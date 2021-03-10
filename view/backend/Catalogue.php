@@ -85,8 +85,7 @@
                                         <a href=<?= "Ressource/?idRessource=$ressource->id&action=modifier" ?> class="btn btn-outline-primary btn-sm col" title="Modifier"><i class="fas fa-pencil-alt"></i></a>
                                     
                                     <?php if (in_array($_SESSION['type_account'], ['admin', 'super_admin'])):?>
-                    
-                                        <a href="#" class="btn btn-outline-warning btn-sm col" title="Suspendre"><i class="fas fa-eye-slash"></i></a>                              
+                                         
                                         <a href="#" class="btn btn-outline-danger btn-sm col" title="Supprimer"><i class="fas fa-trash"></i></a>
                                     
                                     <?php endif; ?> 
