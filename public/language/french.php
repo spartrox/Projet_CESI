@@ -15,6 +15,7 @@ $l = [
     "administrator" => "Administration",
     "favory" => "Favoris",
     "aside" => "Mis de côté",
+    "exploited" => "Explotées",
     "create_edit" => "Création",
     "search" => "Recherche",
     "signup" => "Inscription",

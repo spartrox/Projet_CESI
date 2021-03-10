@@ -11,6 +11,7 @@ class BackendController extends Controller
 
     private $enumStateRessource = ['private', 'shared', 'public', 'to_validate', 'validate', 'suspended'];
     private $enumStateCompte = ['citoyen', 'moderateur', 'admin', 'to_validate', 'super_admin'];
+    private $enumStateRessourceMember = ['favory', 'aside', 'exploited'];
 
     ////////////////////////////////
     ////*Fonctions d'affichage*/////
@@ -34,13 +35,37 @@ class BackendController extends Controller
     function Catalogue()
     {
         //Récupération des ressources
+        //Préparation des modèles
         $this->modRessources = $this->loadModel("Ressources");
+        $this->modCategoriesRessources = $this->loadModel("CategoriesRessources");
+        $this->modFavoris = $this->loadModel("Favoris");
+        //Filtres
+        //Etats des ressources globales
         if(!empty($_SESSION))
         {
-            $params = ['projections' => 'ressources.*', 'conditions' => 'state in("shared", "public")'];
+            $params = ['projections' => 'ressources.*', 'conditions' => $this->modRessources->table.'.state in("shared", "public")'];
         } else 
         {
-            $params = ['projections' => 'ressources.*', 'conditions' => 'state in("shared", "public")'];
+            $params = ['projections' => 'ressources.*', 'conditions' => $this->modRessources->table.'.state in("shared", "public")'];
+        }
+        //Catégories
+        $tableRessource = $this->modRessources->table;
+        if (isset($_POST['categoryRessource']))
+        {
+            if ($_POST['categoryRessource'] != "all") {
+                $params['conditions'] .= ' and id_category = '.$_POST['categoryRessource'];
+                $this->modRessources->table.=' inner join '.$this->modCategoriesRessources->table.' on '.$tableRessource.'.id = '.$this->modCategoriesRessources->table.'.id_ressources ';
+            } 
+            $d['FiltrecategoryRessource'] = $_POST['categoryRessource'];
+        }
+        //Etats des ressources pour le membre
+        if (isset($_POST['stateRessourceMembers']))
+        {
+            if ($_POST['stateRessourceMembers'] != "all") {
+                $params['conditions'] .= ' and '.$this->modFavoris->table.'.state = "'.$_POST['stateRessourceMembers'].'"';
+                $this->modRessources->table.=' inner join '.$this->modFavoris->table.' on '.$tableRessource.'.id = '.$this->modFavoris->table.'.id_ressources ';
+            }
+            $d['FiltrestateRessourceMembers'] = $_POST['stateRessourceMembers'];
         }
         $ressources =  $this->modRessources->find($params);
         $d['ressources'] = $ressources;
@@ -72,6 +97,12 @@ class BackendController extends Controller
         $categoriesDesRessources = [];
         foreach ($ressources as $ressource) { $categoriesDesRessources[$ressource->id] = $this->DeterminerCategoriesRessource($ressource->id); }
         $d['categories'] = $categoriesDesRessources;
+        //Récupération des états des ressources
+        $d['states'] = $this->enumStateRessource;
+        //Récupération des catégories
+        $d['categorys'] = $this->RecupererToutesCategories();
+        //Récupération états des ressources en fonction des membres
+        $d['stateRessourceMembers'] = $this->enumStateRessourceMember;
         //Préparation de l'affichage
         $this->set($d);
         $this->render("Catalogue");

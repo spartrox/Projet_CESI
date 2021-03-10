@@ -2,18 +2,35 @@
     <div class="row">
         <div class="pt-2 pb-2 titrePage"><h1><i class="fas fa-book-open"></i> Catalogue</h1></div>
     </div>
-    <div class="row pb-2">
-        <div class="alert alert-light" role="alert">
-        <?php if (isset($_SESSION['id'])):?> 
-        <select name="state" <?php if ($action) {echo 'disabled';} ?> class="col-8 <?php if ($action) {echo 'form-control-plaintext';} else {echo 'form-control';} ?> form-control-lg" id="EtatSelect">
+    <div class="pb-2">
+        <form method="post">
+            <div class="row alert alert-light" role="alert">
+                <?php if (isset($_SESSION['id'])):?> 
+                <select id="stateRessource" name="stateRessource" class="col-2 form-control" id="EtatSelect">
+                    <option value="all">Tous</option>
                     <?php 
                         foreach ($states as $state) { ?>
-                            <option <?= ($ressource->state == $state)? 'selected' : '' ?>><?= $state ?></option>
-                        <?php }
-                    ?>
-        </select>
-        <?php endif; ?> 
-        </div>
+                            <option value="<?= $state ?>"><?= $state ?></option>
+                    <?php } ?>
+                </select>
+                <?php endif; ?>
+                <select id="categoryRessource" name="categoryRessource" class="col-2 form-control" id="CategorieSelect">
+                    <option value="all">Toutes catégories</option>
+                    <?php 
+                        foreach ($categorys as $category) { ?>
+                            <option value="<?= $category->id ?>" <?= ($FiltrecategoryRessource == $category->id)?'selected':'' ?>><?= $category->title ?></option>
+                    <?php } ?>
+                </select>
+                <select id="stateRessourceMembers" name="stateRessourceMembers" class="col-3 form-control" id="EtatRessourceMembreSelect">
+                    <option value="all">Favoris/Exploitées/Mis de côté</option>
+                    <?php 
+                        foreach ($stateRessourceMembers as $stateRessourceMember) { ?>
+                            <option value="<?= $stateRessourceMember ?>" <?= ($FiltrestateRessourceMembers == $stateRessourceMember)?'selected':'' ?>><?= $stateRessourceMember ?></option>
+                    <?php } ?>
+                </select>
+                <button type="submit" class="btn btn-outline-primary" title="Rechercher"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
     </div>
     <div class="row">
         <?php
@@ -81,9 +98,11 @@
                 </div>
                 <?php
             }
-            if (is_null($ressources))
+            if (empty($ressources))
             { ?>
-                <div><p>Aucune ressource disponible</p></div>
+                <div class="container text-center">
+                    <p>Mince ! Aucune ressource par ici.<br>Vous devriez peut-être modifier vos filtres.</p>
+                </div>
             <?php }
         ?>
     </div>
