@@ -13,19 +13,19 @@
                             <option value="<?= $state ?>"><?= $state ?></option>
                     <?php } ?>
                 </select>
+                <select id="stateRessourceMembers" name="stateRessourceMembers" class="col-3 form-control" id="EtatRessourceMembreSelect">
+                    <option value="all">Favoris/Exploitées/Mis de côté</option>
+                    <?php 
+                        foreach ($stateRessourceMembers as $stateRessourceMember) { ?>
+                            <option value="<?= $stateRessourceMember ?>" <?= ($FiltrestateRessourceMembers == $stateRessourceMember)?'selected':'' ?>><?= $stateRessourceMember ?></option>
+                    <?php } ?>
+                </select>
                 <?php endif; ?>
                 <select id="categoryRessource" name="categoryRessource" class="col-2 form-control" id="CategorieSelect">
                     <option value="all">Toutes catégories</option>
                     <?php 
                         foreach ($categorys as $category) { ?>
                             <option value="<?= $category->id ?>" <?= ($FiltrecategoryRessource == $category->id)?'selected':'' ?>><?= $category->title ?></option>
-                    <?php } ?>
-                </select>
-                <select id="stateRessourceMembers" name="stateRessourceMembers" class="col-3 form-control" id="EtatRessourceMembreSelect">
-                    <option value="all">Favoris/Exploitées/Mis de côté</option>
-                    <?php 
-                        foreach ($stateRessourceMembers as $stateRessourceMember) { ?>
-                            <option value="<?= $stateRessourceMember ?>" <?= ($FiltrestateRessourceMembers == $stateRessourceMember)?'selected':'' ?>><?= $stateRessourceMember ?></option>
                     <?php } ?>
                 </select>
                 <button type="submit" class="btn btn-outline-primary" title="Rechercher"><i class="fas fa-search"></i></button>
