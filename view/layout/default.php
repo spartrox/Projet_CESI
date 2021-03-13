@@ -66,7 +66,7 @@
 										<i class="fas fa-cogs"></i> <?=$l['administrator'] ?>
 									</a>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Messages" ?>"><i class="fas fa-envelope"></i> Messages reçus
+										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Messages" ?>"><i class="fas fa-envelope"></i> Messagerie
 										</a>
 										<a class="nav-link text-uppercase" href="<?= BASE_URL . DS . "backend/Ressources" ?>"><i class="fas fa-file"></i> Ressources
 										</a>
