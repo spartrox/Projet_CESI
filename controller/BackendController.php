@@ -132,9 +132,9 @@ class BackendController extends Controller
                 $image = ($_POST['image'] == '') ? $_POST['imageold'] : $_POST['image'] ;
                 $params = ['donnees' => ['title' => $_POST['title'], 'content' => $_POST['content'], 'image' => $image, 'state' => $_POST['state']], 'conditions' => ['id' => $idRessource]];
                 $this->modRessources->update($params);
-
-                $this->ModifierCategoriesRessource($idRessource, $_POST['categories']);
-
+                if (isset($_POST['categories'])){
+                    $this->ModifierCategoriesRessource($idRessource, $_POST['categories']);
+                }
             }
 
             //Récupération de la ressoure

@@ -127,14 +127,14 @@ function FavorisMisDeCoteExploiteeRessource(id_ressource, id_member, state, idht
 }
 
 //Appelé depuis une ressource
-function AjoutCommentaire(first_name, last_name, id_member, id_ressource)
+function AjoutCommentaire(pseudo, id_member, id_ressource)
 {
     commentaire = document.getElementById('textCommentaire');
     if (commentaire.value != '')
     {
         var d = new Date();
         document.getElementById("tabCommentaires").innerHTML 
-        = "<tr><td class='col-5'><em>" + first_name + ' ' + last_name 
+        = "<tr><td class='col-5'><em><span class='text-capitalize'>" + pseudo + "</span>"
         + ' le ' + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() 
         + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() 
         + "</em></td><td>" + commentaire.value + "</td></tr>"

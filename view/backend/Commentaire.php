@@ -9,7 +9,7 @@
         </div>
         <br>
         <div class="row">
-            <button onclick="AjoutCommentaire('<?= (isset($_SESSION['first_name'])) ? $_SESSION['first_name']:'Gaby' ?>' , '<?= (isset($_SESSION['last_name'])) ? $_SESSION['last_name']:'Walko' ?>', <?= $_SESSION['id'] ?>, <?= $ressource->id ?>)" class="btn btn-primary">Envoyer</button>
+            <button onclick="AjoutCommentaire('<?= $_SESSION['pseudo'] ?>' , <?= $_SESSION['id'] ?>, <?= $ressource->id ?>)" class="btn btn-primary">Envoyer</button>
         </div>
         <br>
         <div class="row listecommentaires overflow-auto">
@@ -19,7 +19,7 @@
                     $membre = $membres[$commentaire->id_commentary]; 
                     if ($commentaire->restraint == 0) { ?>
                     <tr id ='Com<?=$commentaire->id_commentary ?>'>
-                        <td class='col-5'><em><?=$membre->first_name?> <?=$membre->last_name?> le <?=$commentaire->date_message?></em></td>
+                        <td class='col-5'><em><span class='text-capitalize'><?=$membre->pseudo?></span> le <?=$commentaire->date_message?></em></td>
                         <td><?=$commentaire->text?></td>
                         <td class='col-1'>
                             <button id="btnCom<?=$commentaire->id_commentary ?>" title="Restreindre le commentaire" class='btn btn-warning' onclick='RestreindreCommentaire(<?= $ressource->id ?>, <?= $commentaire->id_commentary ?>, "Com<?= $commentaire->id_commentary ?>", "btnCom<?=$commentaire->id_commentary ?>")'>
