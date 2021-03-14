@@ -656,13 +656,13 @@ class BackendController extends Controller
     function RestreindreRessource()
     {
         $modRessource = $this->loadModel("Ressources");
-        $modRessource->update(["donnees" => ["state" => ['suspended']], "conditions" => ["id" => $_POST["id"]]]);
+        $modRessource->update(["donnees" => ["state" => 'suspended'], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function ReintegrerRessource()
     {
         $modRessource = $this->loadModel("Ressources");
-        $modRessource->update(["donnees" => ["state" => ['public']], "conditions" => ["id" => $_POST["id"]]]);
+        $modRessource->update(["donnees" => ["state" => 'public'], "conditions" => ["id" => $_POST["id"]]]);
     }
 
     function AjouterNouvelleCategorie()

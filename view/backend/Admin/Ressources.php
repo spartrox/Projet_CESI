@@ -10,7 +10,7 @@
         </thead>
         <?php 
         foreach ($ressources as $ressource) { ?>
-            <tr>
+            <tr id="Ressource<?= $ressource->id?>">
                 <th><input id="title<?= $ressource->id?>" class='form-control-plaintext' value='<?= $ressource->title?>' readonly></th>
                 <th><textarea  id="content<?= $ressource->id?>" class='form-control-plaintext' readonly><?= $ressource->content ?></textarea></th>               
                 <th>   
