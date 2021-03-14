@@ -279,7 +279,7 @@ function EnregistrerNouvelleCategorie(idHtlmTitre, idHtlmDescription, idBtn)
 {
     //Préparation de la requète
     xmlhttp = prepareXMLHTTP();
-    xmlhttp.open("POST", "AjouterNouvelleRessource", true);
+    xmlhttp.open("POST", "AjouterNouvelleCategorie", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     titre = document.getElementById(idHtlmTitre).value;
     description = document.getElementById(idHtlmDescription).value;
@@ -385,6 +385,35 @@ function ReintegrerCompte(id_member, idhtmlbtn)
     document.getElementById(idhtmlbtn).setAttribute("onclick", "RestreindreCompte("+id_member+", 'btn"+id_member+"')");
     document.getElementById(idhtmlbtn).setAttribute("title", "Désactivation");
 
+}
+
+function AjouterMsgChat(id_member)
+{
+    //Récupération des infos
+    id_ressource = document.getElementById('idRessource').innerHTML;
+    text = document.getElementById('MsgChat').value;
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.open("POST", "../AjouterMsgTchat", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("id_member="+id_member+"&id_ressource="+id_ressource+"&text="+text);
+    //Réinitialisation de la zone du message
+    document.getElementById('MsgChat').value = '';
+}
+
+function MAJTchat()
+{
+    //Préparation de la requète
+    xmlhttp = prepareXMLHTTP();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var fin = (xmlhttp.responseText).search("<!-- Fin -->")
+            document.getElementById('listeChat'). innerHTML = (xmlhttp.responseText).slice(0, fin);
+        }
+    }
+    id_ressource = document.getElementById('idRessource').innerHTML;
+    xmlhttp.open("GET", "../Tchat/?id_ressource="+id_ressource, true);
+    xmlhttp.send();
 }
 
 function prepareXMLHTTP()

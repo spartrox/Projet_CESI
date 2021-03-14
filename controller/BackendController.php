@@ -7,6 +7,8 @@ class BackendController extends Controller
     private $modCategoriesRessources = null;
     private $modCommentaires = null;
     private $modMember = null;
+    private $modActivite = null;
+    private $modTchat = null;
     private $modContact = null;
 
     private $enumStateRessource = ['private', 'shared', 'public', 'to_validate', 'validate', 'suspended'];
@@ -57,6 +59,8 @@ class BackendController extends Controller
                 $this->modRessources->table.=' inner join '.$this->modCategoriesRessources->table.' on '.$tableRessource.'.id = '.$this->modCategoriesRessources->table.'.id_ressources ';
             } 
             $d['FiltrecategoryRessource'] = $_POST['categoryRessource'];
+        } else {
+            $d['FiltrecategoryRessource'] = "all";
         }
         //Etats des ressources pour le membre
         if (isset($_POST['stateRessourceMembers']))
@@ -66,6 +70,8 @@ class BackendController extends Controller
                 $this->modRessources->table.=' inner join '.$this->modFavoris->table.' on '.$tableRessource.'.id = '.$this->modFavoris->table.'.id_ressources ';
             }
             $d['FiltrestateRessourceMembers'] = $_POST['stateRessourceMembers'];
+        } else {
+            $d['FiltrestateRessourceMembers'] = "all";
         }
         $ressources =  $this->modRessources->find($params);
         $d['ressources'] = $ressources;
@@ -188,9 +194,21 @@ class BackendController extends Controller
                 //Ajout des états de la ressource
                 $d['states'] = $this->enumStateRessource;
 
-                //Chargement de l'affichage
-                $this->set($d);
-                $this->render("Ressource");
+                //Détermine si la ressource est une activite
+                if (!empty($this->DeterminerSiRessourceEstActivite($ressource->id)))
+                {
+                    //Récupération du tchat de l'activite
+                    $d['tchats'] = $this->RecupererTchatActivite($ressource->id);
+                    $d['participants'] = $this->RecupererParticipantsActivite($ressource->id);
+                    //Chargement de l'affichage
+                    $this->set($d);
+                    $this->render("Activite");
+                } else {
+                    //Chargement de l'affichage
+                    $this->set($d);
+                    $this->render("Ressource");
+                }
+
             } else{
                 $this->e404("Cette ressource n'existe pas.");
             }
@@ -561,6 +579,24 @@ class BackendController extends Controller
         
     }
 
+    function DeterminerSiRessourceEstActivite($id_ressource)
+    {
+        $this->modActivite = $this->loadModel("Activites");
+        return $this->modActivite->find(['projections' => 'Activites.*', "conditions" => "id_activity = $id_ressource"]);
+    }
+
+    function RecupererTchatActivite($id_ressource)
+    {
+        $this->modTchat = $this->loadModel("Tchat");
+        return $this->modTchat->find(['projections' => 'tchat_activity.*', "conditions" => "id_activity = $id_ressource", "orderby"=>"id_msg ASC"]);
+    }
+
+    function RecupererParticipantsActivite($id_ressource)
+    {
+        $this->modParticipant = $this->loadModel("Participants");
+        return $this->modParticipant->find(['projections' => 'member_activity.*', "conditions" => "id_activity = $id_ressource"]);
+    }
+
     //////////////////////////////////////////
     /*Fonctions appelées par le système Ajax*/
     //////////////////////////////////////////
@@ -629,11 +665,10 @@ class BackendController extends Controller
         $modRessource->update(["donnees" => ["state" => ['public']], "conditions" => ["id" => $_POST["id"]]]);
     }
 
-    function AjouterNouvelleRessource()
+    function AjouterNouvelleCategorie()
     {
         $modCategories = $this->loadModel("Categories");
         $modCategories->insertAI(['title', 'descritption',], [$_POST['title'],$_POST['description']]);
-        $modCategories->findFirst(['projections' => 'category.id', 'conditions' => "title = ".$_POST['title']." and description = ".$_POST['description']]);
     }
 
     function SupprimerCategorie()
@@ -646,5 +681,19 @@ class BackendController extends Controller
     {
         $modCategories = $this->loadModel("Ressources");
         $modCategories->delete(['conditions' => ["id" => $_POST['id']]]);
+    }
+
+    //Fonction particulière pour mettre à jour le tchat des activités
+    function Tchat()
+    {
+        $d['tchats'] = $this->RecupererTchatActivite($_GET['id_ressource']);
+        extract($d);
+        require ROOT . DS . 'view' . DS . $this->request->controller . DS . 'Tchat.php';
+    }
+
+    function AjouterMsgTchat()
+    {
+        $modTchat = $this->loadModel("Tchat");
+        $modTchat->insertAI(['id_activity', 'id_member', 'text'], [$_POST['id_ressource'],$_POST['id_member'],$_POST['text']]);
     }
 }

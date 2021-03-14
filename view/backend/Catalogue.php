@@ -21,8 +21,8 @@
                     <?php } ?>
                 </select>
                 <?php endif; ?>
-                <select id="categoryRessource" name="categoryRessource" class="col-2 form-control" id="CategorieSelect">
-                    <option value="all">Toutes catégories</option>
+                <select id="categoryRessource" name="categoryRessource" class="col-3 form-control" id="CategorieSelect">
+                    <option value="all">Toutes les catégories</option>
                     <?php 
                         foreach ($categorys as $category) { ?>
                             <option value="<?= $category->id ?>" <?= ($FiltrecategoryRessource == $category->id)?'selected':'' ?>><?= $category->title ?></option>
